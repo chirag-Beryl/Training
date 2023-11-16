@@ -1,0 +1,1725 @@
+                                               [Linux Commands]
+---------------------------------------------------------------------------------------------------------------------->
+1. ls:
+
+Purpose: Lists files and directories in the specified directory.
+example: 
+beryl@beryl-HP-ProBook-6460b:~$ ls
+chirag   Documents  examples.desktop                        Music      newchirag    Pictures  snap       Videos
+Desktop  Downloads  google-chrome-stable_current_amd64.deb  nano.save  newfile.tsx  Public    Template
+
+*** (a) ls -a:List hidden files and directories:
+example:
+beryl@beryl-HP-ProBook-6460b:~$ ls -a
+.              .cache     .dotnet                                 .ICEauthority  newchirag    Public                     Videos
+..             chirag     Downloads                               .local         newfile.tsx  snap                       .viminfo
+.bash_history  .config    examples.desktop                        .mozilla       Pictures     .ssh                       .vscode
+.bash_logout   Desktop    .gnupg                                  Music          .pki         .sudo_as_admin_successful  .zoom
+.bashrc        Documents  google-chrome-stable_current_amd64.deb  nano.save      .profile     Templates
+*** (b) ls -l: 
+Purpose: Lists files and directories in a single column, suitable for scripting and generating simple lists.
+examples:
+beryl@beryl-HP-ProBook-6460b:~$ ls -l
+total 101520
+drwxrwxr-x 10 beryl beryl      4096 Nov  2 16:52 chirag
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Desktop
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Documents
+drwxr-xr-x  2 beryl beryl      4096 Nov  1 12:11 Downloads
+-rw-r--r--  1 beryl beryl      8980 Oct 31 19:28 examples.desktop
+-rw-rw-r--  1 beryl beryl 103888432 Oct 31 01:39 google-chrome-stable_current_amd64.deb
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Music
+-rw-------  1 beryl beryl         3 Nov  1 12:20 nano.save
+drwxrwxr-x  3 beryl beryl      4096 Nov  1 17:01 newchirag
+-rw-rw-r--  1 beryl beryl         3 Nov  1 16:21 newfile.tsx
+drwxr-xr-x  2 beryl beryl      4096 Nov  2 13:49 Pictures
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Public
+drwx------  3 beryl beryl      4096 Nov  1 14:25 snap
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Templates
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Videos
+
+*** (c) ls -lh :
+
+Purpose: Displays file sizes in a more human-readable format, using "K" for kilobytes and "M" for megabytes
+example:
+beryl@beryl-HP-ProBook-6460b:~$ ls -lh
+total 100M
+drwxrwxr-x 10 beryl beryl 4.0K Nov  2 16:52 chirag
+drwxr-xr-x  2 beryl beryl 4.0K Oct 31 19:47 Desktop
+drwxr-xr-x  2 beryl beryl 4.0K Oct 31 19:47 Documents
+drwxr-xr-x  2 beryl beryl 4.0K Nov  1 12:11 Downloads
+-rw-r--r--  1 beryl beryl 8.8K Oct 31 19:28 examples.desktop
+-rw-rw-r--  1 beryl beryl 100M Oct 31 01:39 google-chrome-stable_current_amd64.deb
+drwxr-xr-x  2 beryl beryl 4.0K Oct 31 19:47 Music
+-rw-------  1 beryl beryl    3 Nov  1 12:20 nano.save
+drwxrwxr-x  3 beryl beryl 4.0K Nov  1 17:01 newchirag
+-rw-rw-r--  1 beryl beryl    3 Nov  1 16:21 newfile.tsx
+drwxr-xr-x  2 beryl beryl 4.0K Nov  2 13:49 Pictures
+drwxr-xr-x  2 beryl beryl 4.0K Oct 31 19:47 Public
+drwx------  3 beryl beryl 4.0K Nov  1 14:25 snap
+drwxr-xr-x  2 beryl beryl 4.0K Oct 31 19:47 Templates
+drwxr-xr-x  2 beryl beryl 4.0K Oct 31 19:47 Videos
+*** (d) ls -lart
+Purpose: Allows you to use multiple options together to customize the listing format and order. In this example, it lists files and directories in long format, in reverse order, and sorted by modification time.
+exmaple:beryl@beryl-HP-ProBook-6460b:~$ ls -lart
+total 101600
+-rw-rw-r--  1 beryl beryl 103888432 Oct 31 01:39 google-chrome-stable_current_amd64.deb
+drwxr-xr-x  3 root  root       4096 Oct 31 19:28 ..
+-rw-r--r--  1 beryl beryl       807 Oct 31 19:28 .profile
+-rw-r--r--  1 beryl beryl      8980 Oct 31 19:28 examples.desktop
+-rw-r--r--  1 beryl beryl      3771 Oct 31 19:28 .bashrc
+-rw-r--r--  1 beryl beryl       220 Oct 31 19:28 .bash_logout
+drwx------  3 beryl beryl      4096 Oct 31 19:47 .local
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Videos
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Templates
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Public
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Music
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Documents
+drwxr-xr-x  2 beryl beryl      4096 Oct 31 19:47 Desktop
+drwx------  5 beryl beryl      4096 Oct 31 19:52 .mozilla
+drwx------  3 beryl beryl      4096 Nov  1 10:41 .gnupg
+drwx------  2 beryl beryl      4096 Nov  1 10:41 .ssh
+drwx------  3 beryl beryl      4096 Nov  1 10:52 .pki
+-rw-r--r--  1 beryl beryl         0 Nov  1 11:05 .sudo_as_admin_successful
+drwx------  7 beryl beryl      4096 Nov  1 11:32 .zoom
+drwxr-xr-x  2 beryl beryl      4096 Nov  1 12:11 Downloads
+-rw-------  1 beryl beryl         3 Nov  1 12:20 nano.save
+drwx------ 18 beryl beryl      4096 Nov  1 12:26 .cache
+drwx------  3 beryl beryl      4096 Nov  1 14:25 snap
+drwx------ 17 beryl beryl      4096 Nov  1 14:25 .config
+drwxrwxr-x  4 beryl beryl      4096 Nov  1 14:26 .vscode
+drwxrwxr-x  3 beryl beryl      4096 Nov  1 14:27 .dotnet
+-rw-rw-r--  1 beryl beryl         3 Nov  1 16:21 newfile.tsx
+drwxrwxr-x  3 beryl beryl      4096 Nov  1 17:01 newchirag
+drwxr-xr-x  2 beryl beryl      4096 Nov  2 13:49 Pictures
+-rw-------  1 beryl beryl       532 Nov  2 16:18 .viminfo
+drwxrwxr-x 10 beryl beryl      4096 Nov  2 16:52 chirag
+-rw-------  1 beryl beryl      8940 Nov  2 18:57 .bash_history
+-rw-------  1 beryl beryl      2292 Nov  3 10:00 .ICEauthority
+drwxr-xr-x 23 beryl beryl      4096 Nov  3 10:00 .
+---------------------------------------------------------------------------------------------------------->
+(2) cd : 
+Purpose: This command changes the current working directory to the directory specified by the absolute path /path/to/directory.
+----------------------------------------------------------------------------------------------------------->
+(3) pwd:
+purpose is to display the current working directory (the directory you are currently in) in the command-line interface. It provides the absolute path to the directory where you are located within the file system. The pwd command is useful for various purposes:
+exmaple:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ pwd
+/home/beryl/chirag
+-------------------------------------------------------------------------------------------------------------->
+(4) mkdir :
+The mkdir command in Linux is used to create new directories (folders) within the file system. "mkdir" stands for "make directory." Its primary purpose is to create directories at specified locations, allowing you to organize and structure your file system.
+mkdir [options] directory_name
+
+example: make three folder together 
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  newchirag  zipcontent
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newfolder
+beryl@beryl-HP-ProBook-6460b:~/chirag$ mkdir pc1 pc2 pc3
+beryl@beryl-HP-ProBook-6460b:~/chirag$ 
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  newchirag  pc1  pc3
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newfolder  pc2  zipcontent
+
+example:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ mkdir -p pc4/pc5/pc6
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  newchirag  pc1  pc3  zipcontent
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newfolder  pc2  pc4
+beryl@beryl-HP-ProBook-6460b:~/chirag$ mkdir -p pc1/pc5/pc6
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  newchirag  pc1  pc3  zipcontent
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newfolder  pc2  pc4
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls pc4
+pc5
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls pc1
+pc5
+------------------------------------------------------------------------------------------------------->
+(5) touch command:
+The `touch` command in Linux is used to create empty files or update the access and modification times of existing files. The primary purpose of the `touch` command is to ensure that a file with a specified name exists or to update the timestamp of a file. It's a versatile command commonly used for various tasks, including creating new files, updating timestamps, and ensuring the existence of specific files.
+
+Here is the basic syntax of the `touch` command:
+
+```bash
+touch [options] filename
+```
+
+Where:
+- `[options]` are optional flags that can modify the behavior of the `touch` command.
+- `filename` is the name of the file you want to create or update.
+
+
+Examples with explanations:
+
+1. **Create a new empty file:**
+   ```bash
+   touch myfile.txt
+   ```
+   Purpose: This command creates an empty file named "myfile.txt" in the current working directory.
+
+2. **Create multiple files at once:**
+   ```bash
+   touch file1.txt file2.txt file3.txt
+   ```
+   Purpose: You can create multiple empty files in a single command. This creates three files: "file1.txt," "file2.txt," and "file3.txt."
+
+3. **Update the access and modification times of an existing file:**
+   ```bash
+   touch existing_file.txt
+   ```
+   Purpose: If "existing_file.txt" already exists, this command updates its access and modification timestamps to the current time.
+
+4. **Ensure the existence of a file for a script:**
+   ```bash
+   # Check if a file exists; if not, create it
+   if [ ! -e myfile.txt ]; then
+       touch myfile.txt
+   fi
+   ```
+   Purpose: This script snippet checks if "myfile.txt" exists, and if it doesn't, it creates the file. It ensures that a file exists before performing any operations on it.
+
+5. **Create a file in a specific directory:**
+   ```bash
+   touch /path/to/directory/newfile.txt
+   ```
+   Purpose: This command creates a new file named "newfile.txt" in the specified directory with an absolute path.
+
+The `touch` command is a handy tool for working with files in Linux, whether you need to create empty files, update timestamps, or ensure the existence of specific files, particularly when used in scripts or automation tasks.
+
+---------------------------------------------------------------------------------------------------->
+(6) copy :
+The `cp` command in Linux is used to copy files and directories from one location to another. "cp" stands for "copy." Its primary purpose is to duplicate files and directories, allowing you to create backups, make duplicates, or move data within the file system. The `cp` command can be used to copy files, directories, or a combination of both.
+
+Here is the basic syntax of the `cp` command:
+
+```bash
+cp [options] source destination
+```
+
+Where:
+- `[options]` are optional flags that can modify the behavior of the `cp` command.
+- `source` is the file or directory you want to copy.
+- `destination` is the location where you want to copy the source.
+
+
+Examples with explanations:
+
+1. **Copy a file to a new location:**
+   ```bash
+   cp file.txt /path/to/destination/
+   ```
+   Purpose: This command copies the file "file.txt" to the directory specified as the destination.
+
+2. **Copy a directory and its contents:**
+   ```bash
+   cp -r directory1 /path/to/destination/
+   ```
+   Purpose: The `-r` option (or `-R`) allows you to copy a directory and all its contents to the specified destination.
+
+3. **Copy multiple files to a directory:**
+   ```bash
+   cp file1.txt file2.txt /path/to/destination/
+   ```
+   Purpose: You can copy multiple files to a directory in a single command. In this example, it copies "file1.txt" and "file2.txt" to the specified destination.
+
+4. **Copy a file and preserve timestamps:**
+   ```bash
+   cp -p file.txt /path/to/destination/
+   ```
+   Purpose: The `-p` option preserves the original file's timestamps (access and modification times) during the copy.
+
+5. **Copy a directory and overwrite existing files:**
+   ```bash
+   cp -r -f source_dir destination_dir
+   ```
+   Purpose: The `-f` option forces the copy, overwriting existing files in the destination directory if necessary.
+
+6. **Copy a file with a different name:**
+   ```bash
+   cp original.txt new_copy.txt
+   ```
+   Purpose: This command creates a copy of "original.txt" with the name "new_copy.txt."
+
+7. **Copy a file to a different directory and rename it:**
+   ```bash
+   cp file.txt /new/location/new_name.txt
+   ```
+   Purpose: This command copies "file.txt" to a different directory and renames it to "new_name.txt."
+
+The `cp` command is a versatile tool for copying files and directories in Linux, and it plays a crucial role in various file management and backup tasks.
+exmaple:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  newchirag  pc1  pc3  zipcontent
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newfolder  pc2  pc4
+beryl@beryl-HP-ProBook-6460b:~/chirag$ cp -r pc1 pc2 pc3 pc4 mypc
+cp: target 'mypc' is not a directory
+beryl@beryl-HP-ProBook-6460b:~/chirag$ mkdir mypc
+beryl@beryl-HP-ProBook-6460b:~/chirag$ cp -r pc1 pc2 pc3 pc4 mypc
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  mypc       newfolder  pc2  pc4
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newchirag  pc1        pc3  zipcontent
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls mypc
+pc1  pc2  pc3  pc4
+------------------------------------------------------------------------------------------------------------>
+(7) rm :
+The `rm` command in Linux is used to remove (delete) files and directories from the file system. "rm" stands for "remove." Its primary purpose is to delete files and directories, allowing you to clean up your file system, remove unwanted files, and free up disk space.
+
+Here is the basic syntax of the `rm` command:
+
+```bash
+rm [options] file_or_directory
+```
+
+Where:
+- `[options]` are optional flags that can modify the behavior of the `rm` command.
+- `file_or_directory` is the name of the file or directory you want to remove.
+
+Purposes of the `rm` command:
+
+1. **Delete Files:** The primary purpose of `rm` is to delete one or more files from the file system.
+
+2. **Delete Empty Directories:** It can be used to remove empty directories. However, it cannot remove directories with contents without using additional options.
+
+3. **Force Deletion:** `rm` can forcefully delete files and directories, even if they are write-protected or non-empty (use with caution).
+
+4. **Interactive Mode:** With the `-i` option, `rm` can prompt the user for confirmation before deleting each file or directory.
+
+Examples with explanations:
+
+1. **Delete a file:**
+   ```bash
+   rm file.txt
+   ```
+   Purpose: This command deletes the file named "file.txt."
+
+2. **Delete multiple files:**
+   ```bash
+   rm file1.txt file2.txt
+   ```
+   Purpose: You can delete multiple files in a single command. In this example, it deletes "file1.txt" and "file2.txt."
+
+3. **Delete a directory (if empty):**
+   ```bash
+   rm -d empty_directory/
+   ```
+   Purpose: The `-d` option tells `rm` to delete the empty directory "empty_directory."
+
+4. **Forcefully delete a file (no confirmation):**
+   ```bash
+   rm -f file.txt
+   ```
+   Purpose: The `-f` option forces the removal of the file "file.txt" without prompting for confirmation, even if it's write-protected.
+
+5. **Delete a non-empty directory and its contents (forceful):**
+   ```bash
+   rm -r -f non_empty_directory/
+   ```
+   Purpose: The `-r` option (or `-R`) allows you to recursively delete the specified directory and all its contents. The `-f` option enforces the removal without confirmation.
+
+6. **Interactive deletion (prompt for confirmation):**
+   ```bash
+   rm -i file.txt
+   ```
+   Purpose: The `-i` option prompts the user for confirmation before deleting the file "file.txt."
+
+7. **Use wildcards to delete files with a pattern:**
+   ```bash
+   rm *.txt
+   ```
+   Purpose: This command deletes all files with the ".txt" extension in the current directory using a wildcard.
+
+8. **Remove a directory and its contents with a single command:**
+   ```bash
+   rm -r directory_to_remove/
+   ```
+   Purpose: The `-r` option allows you to recursively remove a directory and all its contents.
+
+The `rm` command is a powerful tool for deleting files and directories in Linux, and it should be used with caution, especially when using options like `-f` for forceful deletion. Be careful when using the `rm` command to avoid accidental data loss.
+example:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ rm -rf mypc
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  newchirag  pc1  pc3  zipcontent
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newfolder  pc2  pc4
+beryl@beryl-HP-ProBook-6460b:~/chirag$ rm -i file.txt
+rm: remove regular file 'file.txt'? n
+beryl@beryl-HP-ProBook-6460b:~/chirag$ 
+
+--------------------------------------------------------------------------------------------->
+(8)
+rm:
+The `rm` command in Linux is used to remove (delete) files and directories from the file system. "rm" stands for "remove." Its primary purpose is to delete files and directories, allowing you to clean up your file system, remove unwanted files, and free up disk space.
+
+Here is the basic syntax of the `rm` command:
+
+```bash
+rm [options] file_or_directory
+```
+
+Where:
+- `[options]` are optional flags that can modify the behavior of the `rm` command.
+- `file_or_directory` is the name of the file or directory you want to remove.
+
+Purposes of the `rm` command:
+
+1. **Delete Files:** The primary purpose of `rm` is to delete one or more files from the file system.
+
+2. **Delete Empty Directories:** It can be used to remove empty directories. However, it cannot remove directories with contents without using additional options.
+
+3. **Force Deletion:** `rm` can forcefully delete files and directories, even if they are write-protected or non-empty (use with caution).
+
+4. **Interactive Mode:** With the `-i` option, `rm` can prompt the user for confirmation before deleting each file or directory.
+
+Examples with explanations:
+
+1. **Delete a file:**
+   ```bash
+   rm file.txt
+   ```
+   Purpose: This command deletes the file named "file.txt."
+
+2. **Delete multiple files:**
+   ```bash
+   rm file1.txt file2.txt
+   ```
+   Purpose: You can delete multiple files in a single command. In this example, it deletes "file1.txt" and "file2.txt."
+
+3. **Delete a directory (if empty):**
+   ```bash
+   rm -d empty_directory/
+   ```
+   Purpose: The `-d` option tells `rm` to delete the empty directory "empty_directory."
+
+4. **Forcefully delete a file (no confirmation):**
+   ```bash
+   rm -f file.txt
+   ```
+   Purpose: The `-f` option forces the removal of the file "file.txt" without prompting for confirmation, even if it's write-protected.
+
+5. **Delete a non-empty directory and its contents (forceful):**
+   ```bash
+   rm -r -f non_empty_directory/
+   ```
+   Purpose: The `-r` option (or `-R`) allows you to recursively delete the specified directory and all its contents. The `-f` option enforces the removal without confirmation.
+
+6. **Interactive deletion (prompt for confirmation):**
+   ```bash
+   rm -i file.txt
+   ```
+   Purpose: The `-i` option prompts the user for confirmation before deleting the file "file.txt."
+
+7. **Use wildcards to delete files with a pattern:**
+   ```bash
+   rm *.txt
+   ```
+   Purpose: This command deletes all files with the ".txt" extension in the current directory using a wildcard.
+
+8. **Remove a directory and its contents with a single command:**
+   ```bash
+   rm -r directory_to_remove/
+   ```
+   Purpose: The `-r` option allows you to recursively remove a directory and all its contents.
+
+The `rm` command is a powerful tool for deleting files and directories in Linux, and it should be used with caution, especially when using options like `-f` for forceful deletion. Be careful when using the `rm` command to avoid accidental data loss.
+mv 
+example:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  newchirag  pc1  pc3  zipcontent
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newfolder  pc2  pc4
+beryl@beryl-HP-ProBook-6460b:~/chirag$ mv pc1 pc2 pc3 pc4 mypc
+mv: target 'mypc' is not a directory
+beryl@beryl-HP-ProBook-6460b:~/chirag$ mkdir mypc
+beryl@beryl-HP-ProBook-6460b:~/chirag$ mv pc1 pc2 pc3 pc4 mypc
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  mypc       newfolder
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newchirag  zipcontent
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  mypc       newfolder
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newchirag  zipcontent
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls mypc
+pc1  pc2  pc3  pc4
+beryl@beryl-HP-ProBook-6460b:~/chirag$ 
+----------------------------------------------------------------------------------------------------->
+(9)
+find:
+The `find` command in Linux is a powerful and flexible utility used to search for files and directories within a specified location and based on various criteria. It allows you to locate and work with files that match specific attributes, such as names, types, sizes, and modification times. The primary purpose of the `find` command is to search for files and directories within the file system.
+
+Here is the basic syntax of the `find` command:
+
+```bash
+find [path] [options] [expression]
+```
+
+Where:
+- `path` is the starting directory for the search. If not specified, the search starts from the current directory.
+- `[options]` are optional flags that modify the behavior of the `find` command.
+- `[expression]` specifies the search criteria and actions to be performed on matching files and directories.
+
+Purposes of the `find` command:
+
+1. **Search for Files and Directories:** The primary purpose of `find` is to locate files and directories based on specified criteria.
+
+2. **Perform Actions on Found Items:** You can use `find` to perform various actions on the files and directories it finds, such as copying, moving, deleting, or executing other commands.
+
+3. **Filter by Criteria:** `find` allows you to filter files and directories based on criteria like name patterns, modification times, sizes, and more.
+
+Examples with explanations:
+
+1. **Search for a file by name:**
+   ```bash
+   find /path/to/search -name "file.txt"
+   ```
+   Purpose: This command searches for the file named "file.txt" within the specified path.
+
+2. **Search for all files of a specific type:**
+   ```bash
+   find /path/to/search -type f
+   ```
+   Purpose: This command finds all regular files (not directories or other types) within the specified path.
+
+3. **Search for directories only:**
+   ```bash
+   find /path/to/search -type d
+   ```
+   Purpose: This command finds only directories within the specified path.
+
+4. **Search for files modified within a specific time frame:**
+   ```bash
+   find /path/to/search -type f -mtime -7
+   ```
+   Purpose: This command finds files modified within the last 7 days.
+
+5. **Search for large files (e.g., larger than 100MB):**
+   ```bash
+   find /path/to/search -type f -size +100M
+   ```
+   Purpose: This command finds files larger than 100 megabytes within the specified path.
+
+6. **Search for files and directories owned by a specific user:**
+   ```bash
+   find /path/to/search -user username
+   ```
+   Purpose: This command finds files and directories owned by the user with the username specified.
+
+7. **Search for files and execute a command on each match:**
+   ```bash
+   find /path/to/search -type f -exec command {} \;
+   ```
+   Purpose: This command finds files within the specified path and executes the specified command on each matching file. `{}` is a placeholder for the found item.
+
+8. **Search for files with a specific name pattern using wildcards:**
+   ```bash
+   find /path/to/search -name "*.txt"
+   ```
+   Purpose: This command finds files with names that match the "*.txt" pattern (e.g., all text files) within the specified path.
+
+9. **Search for empty files and directories:**
+   ```bash
+   find /path/to/search -empty
+   ```
+   Purpose: This command finds empty files and directories within the specified path.
+
+The `find` command is a versatile and powerful tool for searching and manipulating files and directories in Linux. It is commonly used for various tasks, such as cleaning up files, organizing data, and managing the file system.
+example:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder      myitems2.tar  mypc       newfolder
+chirag1  documents  file.txt           listcontent.txt  myitem.tar    newchirag  zipcontent
+beryl@beryl-HP-ProBook-6460b:~/chirag$ find -name "file.txt"
+./file.txt
+beryl@beryl-HP-ProBook-6460b:~/chirag$ touch mypc/file.txt 
+beryl@beryl-HP-ProBook-6460b:~/chirag$ find -name "file.txt"
+./mypc/file.txt
+./file.txt
+beryl@beryl-HP-ProBook-6460b:~/chirag$ 
+example:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ find -type d
+.
+./newchirag
+./newfolder
+./newfolder/chirag1
+./newfolder/chirag1/newparent
+./newfolder/chirag1/newparent/newchild
+./newfolder/chirag1/newparent/newchild/newgrandchild
+./newfolder/chirag1/root
+./newfolder/chirag1/root/parent
+./newfolder/chirag1/root/parent/child
+./newfolder/chirag1/root/parent/child/Excercise
+./newfolder/chirag1/root/parent/child/files
+./documents
+./documents/.vscode
+./firstfolder
+./mypc
+./mypc/pc1
+./mypc/pc1/pc5
+./mypc/pc1/pc5/pc6
+./mypc/pc2
+./mypc/pc3
+./mypc/pc4
+./mypc/pc4/pc5
+./mypc/pc4/pc5/p
+--------------------------------------------------------------------------------------------->
+(10)
+chmod:
+The `chmod` command in Linux is used to change the permissions of files and directories. "chmod" stands for "change mode." Its primary purpose is to modify the access permissions of files and directories, determining who can read, write, and execute them. Properly setting permissions is essential for controlling file access and ensuring the security and privacy of data in a multi-user environment.
+
+Here is the basic syntax of the `chmod` command:
+
+```bash
+chmod [options] mode file_or_directory
+```
+
+Where:
+- `[options]` are optional flags that can modify the behavior of the `chmod` command.
+- `mode` specifies the new permission mode you want to set.
+- `file_or_directory` is the file or directory whose permissions you want to change.
+
+Purposes of the `chmod` command:
+
+1. **Change File and Directory Permissions:** The primary purpose of `chmod` is to modify the permissions of files and directories to control who can read, write, and execute them.
+
+2. **Enhance Security:** `chmod` helps enhance the security of files and directories by restricting access to authorized users and groups.
+
+3. **Control Access:** It allows administrators to control who can access and modify files and directories, making it a critical tool for system security.
+
+Examples with explanations:
+
+1. **Change permissions using symbolic notation:**
+   ```bash
+   chmod u+rwx,g+rw,o-rx file.txt
+   ```
+   Purpose: This command modifies the permissions of "file.txt." It grants read, write, and execute (rwx) permissions to the file's owner (u), read and write (rw) permissions to the file's group (g), and removes read and execute (rx) permissions from others (o).
+
+2. **Change permissions using octal notation:**
+   ```bash
+   chmod 644 file.txt
+   ```
+   Purpose: In this example, the octal notation is used to set permissions for "file.txt." The permission mode "644" corresponds to read and write for the owner, and read-only for the group and others.
+
+3. **Change permissions recursively for directories and their contents:**
+   ```bash
+   chmod -R u+rwx,g+rw,o-rx /path/to/directory/
+   ```
+   Purpose: The `-R` option recursively modifies permissions for the specified directory and its contents, granting owner full access and group read and write permissions while removing read and execute permissions from others.
+
+4. **Add execute permission for a single file:**
+   ```bash
+   chmod +x script.sh
+   ```
+   Purpose: This command adds execute permission to the script file "script.sh."
+
+5. **Remove write permission for a directory:**
+   ```bash
+   chmod go-w directory/
+   ```
+   Purpose: This command removes write permissions from both the group (g) and others (o) for the "directory."
+
+6. **Change the owner of a file:**
+   ```bash
+   chown new_owner file.txt
+   ```
+   Purpose: While not a direct function of `chmod`, the `chown` command can change the owner of a file or directory, which indirectly affects access permissions.
+
+7. **Change the group of a file:**
+   ```bash
+   chown :new_group file.txt
+   ```
+   Purpose: Similar to changing ownership, the `chown` command can change the group of a file or directory, impacting access permissions.
+
+The `chmod` command is an essential tool for controlling access and security in a Linux system. It allows users and administrators to set and modify permissions on files and directories to restrict or grant access as needed. Proper use of `chmod` is crucial for maintaining the integrity and security of a system.
+---------------------------------------------------------------------------------------------------------------->
+(11)
+apt:
+`apt` (Advanced Package Tool) is a package management tool in Debian-based Linux distributions, such as Ubuntu and Debian. It provides a convenient way to install, upgrade, remove, and manage software packages on your system. The `apt` command serves various purposes in managing software packages.
+
+Here are some commonly used `apt` commands with explanations and examples:
+
+1. **Install a Package:**
+   - **Command:** `sudo apt install package_name`
+   - **Purpose:** To install a new software package.
+   - **Example:** `sudo apt install firefox` installs the Mozilla Firefox web browser.
+
+2. **Remove a Package:**
+   - **Command:** `sudo apt remove package_name`
+   - **Purpose:** To uninstall a software package.
+   - **Example:** `sudo apt remove gedit` uninstalls the Gedit text editor.
+
+3. **Purge a Package:**
+   - **Command:** `sudo apt purge package_name`
+   - **Purpose:** To uninstall a package and remove its configuration files.
+   - **Example:** `sudo apt purge apache2` removes the Apache web server and its configuration files.
+
+4. **Update Package Lists:**
+   - **Command:** `sudo apt update`
+   - **Purpose:** To update the list of available packages from the repositories.
+   - **Example:** Running `sudo apt update` fetches the latest package information.
+
+5. **Upgrade Installed Packages:**
+   - **Command:** `sudo apt upgrade`
+   - **Purpose:** To upgrade installed packages to their latest versions.
+   - **Example:** `sudo apt upgrade` upgrades all installed packages that have available updates.
+
+6. **Full System Upgrade:**
+   - **Command:** `sudo apt full-upgrade`
+   - **Purpose:** To perform a full system upgrade, which includes package upgrades that may require new dependencies or package removals.
+   - **Example:** `sudo apt full-upgrade` performs a system-wide upgrade.
+
+7. **Search for Packages:**
+   - **Command:** `apt search search_term`
+   - **Purpose:** To search for packages based on a search term.
+   - **Example:** `apt search text editor` searches for packages related to text editors.
+
+8. **Show Package Information:**
+   - **Command:** `apt show package_name`
+   - **Purpose:** To display detailed information about a package.
+   - **Example:** `apt show nano` shows information about the Nano text editor package.
+
+9. **List Installed Packages:**
+   - **Command:** `apt list --installed`
+   - **Purpose:** To list all installed packages.
+   - **Example:** `apt list --installed` displays a list of all installed packages.
+
+10. **Clean Up Package Cache:**
+    - **Command:** `sudo apt clean`
+    - **Purpose:** To remove downloaded package files from the cache to free up disk space.
+    - **Example:** `sudo apt clean` cleans up the package cache.
+
+11. **Autoremove Unused Packages:**
+    - **Command:** `sudo apt autoremove`
+    - **Purpose:** To remove packages that were automatically installed as dependencies but are no longer needed.
+    - **Example:** `sudo apt autoremove` removes unused packages.
+
+The `apt` command is a central tool for managing software packages in Debian-based Linux distributions, providing a straightforward way to install, update, and maintain software on your system.
+----------------------------------------------------------------------------------------------------------->
+(12)
+tar and zip:
+Both the `tar` and `zip` commands are used to create compressed archive files in Linux. However, they serve different purposes and have different formats for archiving and compression.
+
+**tar Command:**
+
+The `tar` command stands for "tape archive" and is primarily used for creating archives of files and directories. It doesn't perform compression by default, but it can be used in conjunction with compression utilities like `gzip` or `bzip2` to create compressed archive files. Here's how to use `tar`:
+
+1. **Create a Tar Archive:**
+   - **Command:** `tar -cvf archive.tar file1 file2 ...`
+   - **Purpose:** To create a tar archive from one or more files and directories.
+   - **Example:** `tar -cvf myarchive.tar file1.txt directory1`
+
+2. **Extract a Tar Archive:**
+   - **Command:** `tar -xvf archive.tar`
+   - **Purpose:** To extract the contents of a tar archive.
+   - **Example:** `tar -xvf myarchive.tar`
+
+3. **Compress with Tar and Gzip:**
+   - **Command:** `tar -czvf archive.tar.gz file1 file2 ...`
+   - **Purpose:** To create a compressed tar archive using `gzip`.
+   - **Example:** `tar -czvf myarchive.tar.gz file1.txt directory1`
+
+4. **Compress with Tar and Bzip2:**
+   - **Command:** `tar -cjvf archive.tar.bz2 file1 file2 ...`
+   - **Purpose:** To create a compressed tar archive using `bzip2`.
+   - **Example:** `tar -cjvf myarchive.tar.bz2 file1.txt directory1`
+
+**zip Command:**
+
+The `zip` command is used for creating compressed archive files in the ZIP format. Unlike `tar`, `zip` performs compression and archiving in a single step. Here's how to use `zip`:
+
+1. **Create a Zip Archive:**
+   - **Command:** `zip archive.zip file1 file2 ...`
+   - **Purpose:** To create a ZIP archive from one or more files and directories.
+   - **Example:** `zip myarchive.zip file1.txt directory1`
+
+2. **Extract a Zip Archive:**
+   - **Command:** `unzip archive.zip`
+   - **Purpose:** To extract the contents of a ZIP archive.
+   - **Example:** `unzip myarchive.zip`
+
+3. **Update a Zip Archive:**
+   - **Command:** `zip -u archive.zip file1 file2 ...`
+   - **Purpose:** To add new or updated files to an existing ZIP archive.
+   - **Example:** `zip -u myarchive.zip newfile.txt`
+
+4. **Create a Password-Protected Zip Archive:**
+   - **Command:** `zip -e archive.zip file1 file2 ...`
+   - **Purpose:** To create a password-protected ZIP archive.
+   - **Example:** `zip -e myarchive.zip sensitivefile.txt`
+
+In summary, the `tar` command is mainly used for creating archive files that can be optionally compressed with external utilities. In contrast, the `zip` command combines archiving and compression into a single step and generates ZIP-format archives. The choice between the two depends on your specific requirements and the compatibility with the tools or systems you intend to work with.
+------------------------------------------------------------------------------------------------------------------->
+(13)
+The `cat` command in Linux is used to display the contents of a file on the terminal, concatenate multiple files, or create new files. "cat" stands for "concatenate and print." Its primary purpose is to read and display the contents of text files.
+
+Here is the basic syntax of the `cat` command:
+
+```bash
+cat [options] [file(s)]
+```
+
+Where:
+- `[options]` are optional flags that can modify the behavior of the `cat` command.
+- `[file(s)]` is the name of one or more files that you want to display or concatenate.
+
+Purposes of the `cat` command:
+
+1. **Display File Contents:** The primary purpose of `cat` is to display the contents of one or more text files on the terminal.
+
+2. **Concatenate Files:** It can concatenate the contents of multiple files and display them together.
+
+3. **Create New Files:** You can use `cat` to create or append content to a file.
+
+Examples with explanations:
+
+1. **Display the contents of a single file:**
+   ```bash
+   cat file.txt
+   ```
+   Purpose: This command displays the contents of the "file.txt" on the terminal.
+
+2. **Display the contents of multiple files:**
+   ```bash
+   cat file1.txt file2.txt
+   ```
+   Purpose: This command displays the contents of both "file1.txt" and "file2.txt" together on the terminal.
+
+3. **Concatenate files and create a new file:**
+   ```bash
+   cat file1.txt file2.txt > merged.txt
+   ```
+   Purpose: This command concatenates the contents of "file1.txt" and "file2.txt" and saves the combined content to a new file called "merged.txt."
+
+4. **Append to an existing file:**
+   ```bash
+   cat newcontent.txt >> existing.txt
+   ```
+   Purpose: This command appends the contents of "newcontent.txt" to the end of the existing file "existing.txt."
+
+5. **Display line numbers with the file contents:**
+   ```bash
+   cat -n file.txt
+   ```
+   Purpose: The `-n` option adds line numbers to the displayed content of "file.txt."
+
+6. **Display non-printing characters (control characters):**
+   ```bash
+   cat -v file.txt
+   ```
+   Purpose: The `-v` option displays non-printing characters (such as control characters) in a visible format.
+
+7. **Display the content of a file with line wrapping:**
+   ```bash
+   cat -s file.txt
+   ```
+   Purpose: The `-s` option squeezes multiple consecutive empty lines into a single line, making the output more compact.
+
+8. **Combine and display the content of multiple files in a single stream:**
+   ```bash
+   cat file1.txt - file2.txt
+   ```
+   Purpose: In this example, the hyphen (`-`) is used to combine and display the content of "file1.txt" and "file2.txt" as a single stream.
+
+The `cat` command is a simple yet versatile tool for viewing, combining, and creating text files in Linux. It is particularly useful for displaying the contents of text files directly on the terminal or for creating new files by concatenating existing ones.
+----------------------------------------------------------------------------------------------------------------------->
+(14)
+ln:
+In Linux, the term "links" can refer to different concepts and commands depending on the context. There are symbolic links (often referred to as symlinks) and hard links, each serving distinct purposes. I'll explain both concepts and their respective commands with examples.
+
+**Symbolic Links (Symlinks):**
+
+A symbolic link, or symlink, is a type of file that points to another file or directory. Symlinks are used to create references to files or directories, and they work across different filesystems. They are similar to shortcuts in Windows or aliases in macOS.
+
+Here is how to create and use symbolic links:
+
+1. **Create a Symlink:**
+   - **Command:** `ln -s target link_name`
+   - **Purpose:** To create a symbolic link that points to a target file or directory.
+   - **Example:** `ln -s /path/to/targetfile link_to_targetfile` creates a symlink named "link_to_targetfile" pointing to "targetfile."
+
+2. **Remove a Symlink:**
+   - **Command:** `rm link_name`
+   - **Purpose:** To remove a symlink.
+   - **Example:** `rm link_to_targetfile` deletes the symlink "link_to_targetfile."
+
+3. **Follow a Symlink:**
+   - **Command:** `ls -l link_name`
+   - **Purpose:** To display information about the symlink, including its target.
+   - **Example:** `ls -l link_to_targetfile` shows details of the symlink and its target.
+
+4. **Use Symlink in a Command:**
+   - **Example:** If you have a symlink named "link_to_targetfile" that points to a text file, you can use the symlink like any other file in commands: `cat link_to_targetfile`.
+
+**Hard Links:**
+
+A hard link is a reference to a file within the same filesystem. Hard links share the same inode and data blocks as the original file, making them effectively the same file, but with different names.
+
+Here is how to create and use hard links:
+
+1. **Create a Hard Link:**
+   - **Command:** `ln target link_name`
+   - **Purpose:** To create a hard link to the target file.
+   - **Example:** `ln existingfile newlinktofile` creates a hard link called "newlinktofile" pointing to "existingfile."
+
+2. **Remove a Hard Link:**
+   - **Command:** `rm link_name`
+   - **Purpose:** To remove a hard link.
+   - **Example:** `rm newlinktofile` deletes the hard link "newlinktofile."
+
+3. **Update File Content Through a Hard Link:**
+   - **Example:** When you modify the content of a file through a hard link, the changes are reflected in the original file and other hard links to that file.
+
+4. **Hard Links and Inodes:**
+   - Inodes are data structures that store file information, including data blocks, file size, and permissions. Hard links refer to the same inode as the original file.
+
+Please note that hard links can only be created for files, not directories. Additionally, hard links do not work across different filesystems.
+
+Both symbolic links and hard links have their use cases. Symlinks are more flexible and can point to directories and work across filesystems, while hard links create additional references to the same file within the same filesystem. The choice of which to use depends on your specific requirements.
+example:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls chirag1
+internet.txt  newparent  root
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ln chirag1/internet.txt Internet
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls
+cars     chirag2    filecontanier.zip  firstfolder  listcontent.txt  myitem.tar  newchirag  zipcontent
+chirag1  documents  file.txt           Internet     myitems2.tar     mypc        newfolder
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls -lh
+total 76K
+drwxrwxr-x 2 beryl beryl 4.0K Nov  2 10:43 cars
+drwxrwxr-x 4 beryl beryl 4.0K Nov  2 14:27 chirag1
+drwxrwxr-x 3 beryl beryl 4.0K Nov  2 11:08 chirag2
+drwxrwxr-x 3 beryl beryl 4.0K Nov  3 10:16 documents
+-rw-rw-r-- 1 beryl beryl  312 Nov  2 15:06 filecontanier.zip
+-rw-r--r-- 1 beryl beryl   39 Nov  2 16:53 file.txt
+drwxrwxr-x 2 beryl beryl 4.0K Nov  2 12:56 firstfolder
+-rw-rw-r-- 2 beryl beryl 3.9K Nov  2 13:38 Internet
+-rw-rw-r-- 1 beryl beryl  213 Nov  2 15:25 listcontent.txt
+-rw-rw-r-- 1 beryl beryl  10K Nov  2 14:42 myitems2.tar
+-rw-rw-r-- 1 beryl beryl  10K Nov  2 14:40 myitem.tar
+drwxrwxr-x 6 beryl beryl 4.0K Nov  3 10:55 mypc
+drwxrwxr-x 2 beryl beryl 4.0K Nov  2 12:41 newchirag
+drwxrwxr-x 3 beryl beryl 4.0K Nov  2 11:21 newfolder
+drwxrwxr-x 3 beryl beryl 4.0K Nov  2 15:17 zipcontent
+beryl@beryl-HP-ProBook-6460b:~/chirag$ cat Internet 
+Email is an important communications service available via the Internet. The concept of sending electronic text messages between parties, analogous to mailing letters or memos, predates the creation of the Internet.[87][88] Pictures, documents, and other files are sent as email attachments. Email messages can be cc-ed to multiple email addresses.
+example :
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ln -s chirag1/internet.txt Internet1
+beryl@beryl-HP-ProBook-6460b:~/chirag$ ls -lh
+total 76K
+drwxrwxr-x 2 beryl beryl 4.0K Nov  2 10:43 cars
+drwxrwxr-x 4 beryl beryl 4.0K Nov  2 14:27 chirag1
+drwxrwxr-x 3 beryl beryl 4.0K Nov  2 11:08 chirag2
+drwxrwxr-x 3 beryl beryl 4.0K Nov  3 10:16 documents
+-rw-rw-r-- 1 beryl beryl  312 Nov  2 15:06 filecontanier.zip
+-rw-r--r-- 1 beryl beryl   39 Nov  2 16:53 file.txt
+drwxrwxr-x 2 beryl beryl 4.0K Nov  2 12:56 firstfolder
+-rw-rw-r-- 2 beryl beryl 3.9K Nov  2 13:38 Internet
+lrwxrwxrwx 1 beryl beryl   20 Nov  3 11:21 Internet1 -> chirag1/internet.txt
+-rw-rw-r-- 1 beryl beryl  213 Nov  2 15:25 listcontent.txt
+-rw-rw-r-- 1 beryl beryl  10K Nov  2 14:42 myitems2.tar
+-rw-rw-r-- 1 beryl beryl  10K Nov  2 14:40 myitem.tar
+drwxrwxr-x 6 beryl beryl 4.0K Nov  3 10:55 mypc
+drwxrwxr-x 2 beryl beryl 4.0K Nov  2 12:41 newchirag
+drwxrwxr-x 3 beryl beryl 4.0K Nov  2 11:21 newfolder
+drwxrwxr-x 3 beryl beryl 4.0K Nov  2 15:17 zipcontent
+---------------------------------------------------------------------------------------------->
+(15)
+grep:
+The `grep` command in Linux is a powerful text-search tool used to search for patterns within files or text streams. The name "grep" stands for "Global Regular Expression Print." It's a versatile command-line utility that helps you find and extract lines of text that match specific patterns, making it particularly useful for tasks such as text filtering and data extraction.
+
+Here is the basic syntax of the `grep` command:
+
+```bash
+grep [options] pattern [file(s)]
+```
+
+Where:
+- `[options]` are optional flags that modify the behavior of the `grep` command.
+- `pattern` is the regular expression or simple string you want to search for.
+- `[file(s)]` is the list of files or input streams you want to search within.
+
+Purposes of the `grep` command:
+
+1. **Search for Text Patterns:** The primary purpose of `grep` is to search for lines of text that match a specified pattern or regular expression.
+
+2. **Filter and Extract Data:** `grep` allows you to filter and extract specific lines from files, helping you extract relevant data from large datasets.
+
+3. **Count Matching Lines:** You can use `grep` to count the number of lines that match a pattern in a file or input stream.
+
+Examples with explanations:
+
+1. **Search for a specific word in a file:**
+   ```bash
+   grep "pattern" file.txt
+   ```
+   Purpose: This command searches for the word "pattern" in the file "file.txt" and displays lines containing that word.
+
+2. **Search for a word in multiple files:**
+   ```bash
+   grep "pattern" file1.txt file2.txt
+   ```
+   Purpose: You can search for the word "pattern" in multiple files, and `grep` will display the matching lines from each file.
+
+3. **Search for a pattern using a regular expression:**
+   ```bash
+   grep "^[0-9]+" numbers.txt
+   ```
+   Purpose: This command uses a regular expression to search for lines starting with one or more digits in the "numbers.txt" file.
+
+4. **Case-insensitive search:**
+   ```bash
+   grep -i "pattern" file.txt
+   ```
+   Purpose: The `-i` option makes the search case-insensitive, so it matches "Pattern," "PATTERN," "pattern," etc.
+
+5. **Display line numbers with matching lines:**
+   ```bash
+   grep -n "pattern" file.txt
+   ```
+   Purpose: The `-n` option displays the line numbers along with the matching lines.
+
+6. **Count the number of matching lines:**
+   ```bash
+   grep -c "pattern" file.txt
+   ```
+   Purpose: The `-c` option counts and displays the number of lines that match the pattern in the "file.txt."
+
+7. **Search all files in a directory recursively:**
+   ```bash
+   grep -r "pattern" /path/to/directory
+   ```
+   Purpose: The `-r` option searches for the pattern recursively in all files within the specified directory and its subdirectories.
+
+8. **Invert the match (exclude lines that match):**
+   ```bash
+   grep -v "pattern" file.txt
+   ```
+   Purpose: The `-v` option inverts the match, displaying lines that do not contain the specified pattern.
+
+9. **Search for a pattern in a piped output:**
+   ```bash
+   command-producing-output | grep "pattern"
+   ```
+   Purpose: You can use `grep` to search for a pattern within the output of a command or another program.
+
+`grep` is a valuable tool for text processing, data extraction, and pattern matching in Linux. Its flexibility and regular expression support make it a fundamental utility for many tasks involving text data.
+exmaple:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ cat chirag1/internet.txt| head -n1
+Email is an important communications service available via the Internet. The concept of sending electronic text messages between parties, analogous to mailing letters or memos, predates the creation of the Internet.[87][88] Pictures, documents, and other files are sent as email attachments. Email messages can be cc-ed to multiple email addresses.
+beryl@beryl-HP-ProBook-6460b:~/chirag$ grep -n "the" chirag1/internet.txt 
+1:Email is an important communications service available via the Internet. The concept of sending electronic text messages between parties, analogous to mailing letters or memos, predates the creation of the Internet.[87][88] Pictures, documents, and other files are sent as email attachments. Email messages can be cc-ed to multiple email addresses.
+3:Internet telephony is a common communications service realized with the Internet. The name of the principal internetworking protocol, the Internet Protocol, lends its name to voice over Internet Protocol (VoIP). The idea began in the early 1990s with walkie-talkie-like voice applications for personal computers. VoIP systems now dominate many markets and are as easy to use and as convenient as a traditional telephone. The benefit has been substantial cost savings over traditional telephone calls, especially over long distances. Cable, ADSL, and mobile data networks provide Internet access in customer premises[89] and inexpensive VoIP network adapters provide the connection for traditional analog telephone sets. The voice quality of VoIP often exceeds that of traditional calls. Remaining problems for VoIP include the situation that emergency services may not be universally available and that devices rely on a local power supply, while older traditional phones are powered from the local loop, and typically operate during a power failure.
+6:File sharing is an example of transferring large amounts of data across the Internet. A computer file can be emailed to customers, colleagues and friends as an attachment. It can be uploaded to a website or File Transfer Protocol (FTP) server for easy download by others. It can be put into a "shared location" or onto a file server for instant use by colleagues. The load of bulk downloads to many users can be eased by the use of "mirror" servers or peer-to-peer networks. In any of these cases, access to the file may be controlled by user authentication, the transit of the file over the Internet may be obscured by encryption, and money may change hands for access to the file. The price can be paid by the remote charging of funds from, for example, a credit card whose details are also passed—usually fully encrypted—across the Internet. The origin and authenticity of the file received may be checked by digital signatures or by MD5 or other message digests. These simple features of the Internet, over a worldwide basis, are changing the production, sale, and distribution of anything that can be reduced to a computer file for transmission. This includes all manner of print publications, software products, news, music, film, video, photography, graphics and the other arts. This in turn has caused seismic shifts in each of the existing industries that previously controlled the production and distribution of these products.
+8:Streaming media is the real-time delivery of digital media for immediate consumption or enjoyment by end users. Many radio and television broadcasters provide Internet feeds of their live audio and video productions. They may also allow time-shift viewing or listening such as Preview, Classic Clips and Listen Again features. These providers have been joined by a range of pure Internet "broadcasters" who never had on-air licenses. This means that an Internet-connected device, such as a computer or something more specific, can be used to access online media in much the same way as was previously possible only with a television or radio receiver. The range of available types of content is much wider, from specialized technical webcasts to on-demand popular multimedia services. Podcasting is a variation on this theme, where—usually audio—material is downloaded and played back on a computer or shifted to a portable media player to be listened to on the move. These techniques using simple equipment allow anybody, with little censorship or licensing control, to broadcast audio-visual material worldwide.
+beryl@beryl-HP-ProBook-6460b:~/chirag$ 
+
+------------------------------------------------------------------------------------------------------------->
+(16)
+
+
+The `grep` command in Linux is a powerful text-search tool used to search for patterns within files or text streams. The name "grep" stands for "Global Regular Expression Print." It's a versatile command-line utility that helps you find and extract lines of text that match specific patterns, making it particularly useful for tasks such as text filtering and data extraction.
+
+Here is the basic syntax of the `grep` command:
+
+```bash
+grep [options] pattern [file(s)]
+```
+
+Where:
+- `[options]` are optional flags that modify the behavior of the `grep` command.
+- `pattern` is the regular expression or simple string you want to search for.
+- `[file(s)]` is the list of files or input streams you want to search within.
+
+Purposes of the `grep` command:
+
+1. **Search for Text Patterns:** The primary purpose of `grep` is to search for lines of text that match a specified pattern or regular expression.
+
+2. **Filter and Extract Data:** `grep` allows you to filter and extract specific lines from files, helping you extract relevant data from large datasets.
+
+3. **Count Matching Lines:** You can use `grep` to count the number of lines that match a pattern in a file or input stream.
+
+Examples with explanations:
+
+1. **Search for a specific word in a file:**
+   ```bash
+   grep "pattern" file.txt
+   ```
+   Purpose: This command searches for the word "pattern" in the file "file.txt" and displays lines containing that word.
+
+2. **Search for a word in multiple files:**
+   ```bash
+   grep "pattern" file1.txt file2.txt
+   ```
+   Purpose: You can search for the word "pattern" in multiple files, and `grep` will display the matching lines from each file.
+
+3. **Search for a pattern using a regular expression:**
+   ```bash
+   grep "^[0-9]+" numbers.txt
+   ```
+   Purpose: This command uses a regular expression to search for lines starting with one or more digits in the "numbers.txt" file.
+
+4. **Case-insensitive search:**
+   ```bash
+   grep -i "pattern" file.txt
+   ```
+   Purpose: The `-i` option makes the search case-insensitive, so it matches "Pattern," "PATTERN," "pattern," etc.
+
+5. **Display line numbers with matching lines:**
+   ```bash
+   grep -n "pattern" file.txt
+   ```
+   Purpose: The `-n` option displays the line numbers along with the matching lines.
+
+6. **Count the number of matching lines:**
+   ```bash
+   grep -c "pattern" file.txt
+   ```
+   Purpose: The `-c` option counts and displays the number of lines that match the pattern in the "file.txt."
+
+7. **Search all files in a directory recursively:**
+   ```bash
+   grep -r "pattern" /path/to/directory
+   ```
+   Purpose: The `-r` option searches for the pattern recursively in all files within the specified directory and its subdirectories.
+
+8. **Invert the match (exclude lines that match):**
+   ```bash
+   grep -v "pattern" file.txt
+   ```
+   Purpose: The `-v` option inverts the match, displaying lines that do not contain the specified pattern.
+
+9. **Search for a pattern in a piped output:**
+   ```bash
+   command-producing-output | grep "pattern"
+   ```
+   Purpose: You can use `grep` to search for a pattern within the output of a command or another program.
+
+`grep` is a valuable tool for text processing, data extraction, and pattern matching in Linux. Its flexibility and regular expression support make it a fundamental utility for many tasks involving text data.
+-------------------------------------------------------------------------------------------------------------->
+(17)
+all system and hardware commands 
+In Linux, you can gather information about your system's hardware and software configuration using various commands. These commands provide details about the hardware components and the software installed on your system. Here are some common hardware and software-related commands with their purposes and examples:
+
+**Hardware Information Commands:**
+
+1. **`lshw` - List Hardware:**
+   - **Purpose:** `lshw` is a comprehensive tool that provides detailed information about your system's hardware, including CPU, memory, storage devices, network interfaces, and more.
+   - **Example:** 
+     ```bash
+     sudo lshw
+     ```
+
+2. **`lscpu` - List CPU Information:**
+   - **Purpose:** `lscpu` displays detailed information about your system's CPU, including its architecture, number of cores, and more.
+   - **Example:**
+     ```bash
+     lscpu
+     ```
+
+3. **`lsblk` - List Block Devices:**
+   - **Purpose:** `lsblk` lists information about block devices, including hard drives and partitions.
+   - **Example:**
+     ```bash
+     lsblk
+     ```
+
+4. **`free` - Display Memory Usage:**
+   - **Purpose:** `free` displays information about your system's memory usage, including total, used, and free memory.
+   - **Example:**
+     ```bash
+     free -h
+     ```
+
+**Software Information Commands:**
+
+5. **`ls` - List Files and Directories:**
+   - **Purpose:** `ls` is a basic command to list the files and directories in the current directory.
+   - **Example:**
+     ```bash
+     ls
+     ```
+
+6. **`uname` - Display System Information:**
+   - **Purpose:** `uname` displays various system information, such as the kernel version, system architecture, and more.
+   - **Example:**
+     ```bash
+     uname -a
+     ```
+
+7. **`hostname` - Display Hostname:**
+   - **Purpose:** `hostname` shows the name of your computer (hostname).
+   - **Example:**
+     ```bash
+     hostname
+     ```
+
+8. **`cat /etc/os-release` - Display OS Information:**
+   - **Purpose:** This command displays information about your Linux distribution and version.
+   - **Example:**
+     ```bash
+     cat /etc/os-release
+     ```
+
+9. **`dpkg` and `rpm` - Package Managers:**
+   - **Purpose:** These commands are used to manage packages (software) on Debian-based and Red Hat-based systems, respectively.
+   - **Examples:**
+     - Debian/Ubuntu:
+       ```bash
+       dpkg --list
+       ```
+     - Red Hat/CentOS:
+       ```bash
+       rpm -qa
+       ```
+
+10. **`ps` - Display Running Processes:**
+    - **Purpose:** `ps` lists the currently running processes, providing information about their status, resource usage, and more.
+    - **Example:**
+      ```bash
+      ps aux
+      ```
+
+11. **`top` or `htop` - Monitor System Resources:**
+    - **Purpose:** These tools provide a real-time view of system resource usage, including CPU, memory, and process information.
+    - **Examples:**
+      ```bash
+      top
+      ```
+      or
+      ```bash
+      htop
+      ```
+
+These commands are essential for obtaining hardware and software information about your Linux system. They help you diagnose issues, monitor resource usage, and understand your system's configuration. Depending on your specific needs, you can choose the appropriate command to retrieve the desired information.
+
+example:
+beryl@beryl-HP-ProBook-6460b:~/chirag$ cat chirag1/internet.txt| head -n1
+Email is an important communications service available via the Internet. The concept of sending electronic text messages between parties, analogous to mailing letters or memos, predates the creation of the Internet.[87][88] Pictures, documents, and other files are sent as email attachments. Email messages can be cc-ed to multiple email addresses.
+beryl@beryl-HP-ProBook-6460b:~/chirag$ grep -n "the" chirag1/internet.txt 
+1:Email is an important communications service available via the Internet. The concept of sending electronic text messages between parties, analogous to mailing letters or memos, predates the creation of the Internet.[87][88] Pictures, documents, and other files are sent as email attachments. Email messages can be cc-ed to multiple email addresses.
+3:Internet telephony is a common communications service realized with the Internet. The name of the principal internetworking protocol, the Internet Protocol, lends its name to voice over Internet Protocol (VoIP). The idea began in the early 1990s with walkie-talkie-like voice applications for personal computers. VoIP systems now dominate many markets and are as easy to use and as convenient as a traditional telephone. The benefit has been substantial cost savings over traditional telephone calls, especially over long distances. Cable, ADSL, and mobile data networks provide Internet access in customer premises[89] and inexpensive VoIP network adapters provide the connection for traditional analog telephone sets. The voice quality of VoIP often exceeds that of traditional calls. Remaining problems for VoIP include the situation that emergency services may not be universally available and that devices rely on a local power supply, while older traditional phones are powered from the local loop, and typically operate during a power failure.
+6:File sharing is an example of transferring large amounts of data across the Internet. A computer file can be emailed to customers, colleagues and friends as an attachment. It can be uploaded to a website or File Transfer Protocol (FTP) server for easy download by others. It can be put into a "shared location" or onto a file server for instant use by colleagues. The load of bulk downloads to many users can be eased by the use of "mirror" servers or peer-to-peer networks. In any of these cases, access to the file may be controlled by user authentication, the transit of the file over the Internet may be obscured by encryption, and money may change hands for access to the file. The price can be paid by the remote charging of funds from, for example, a credit card whose details are also passed—usually fully encrypted—across the Internet. The origin and authenticity of the file received may be checked by digital signatures or by MD5 or other message digests. These simple features of the Internet, over a worldwide basis, are changing the production, sale, and distribution of anything that can be reduced to a computer file for transmission. This includes all manner of print publications, software products, news, music, film, video, photography, graphics and the other arts. This in turn has caused seismic shifts in each of the existing industries that previously controlled the production and distribution of these products.
+8:Streaming media is the real-time delivery of digital media for immediate consumption or enjoyment by end users. Many radio and television broadcasters provide Internet feeds of their live audio and video productions. They may also allow time-shift viewing or listening such as Preview, Classic Clips and Listen Again features. These providers have been joined by a range of pure Internet "broadcasters" who never had on-air licenses. This means that an Internet-connected device, such as a computer or something more specific, can be used to access online media in much the same way as was previously possible only with a television or radio receiver. The range of available types of content is much wider, from specialized technical webcasts to on-demand popular multimedia services. Podcasting is a variation on this theme, where—usually audio—material is downloaded and played back on a computer or shifted to a portable media player to be listened to on the move. These techniques using simple equipment allow anybody, with little censorship or licensing control, to broadcast audio-visual material worldwide.
+beryl@beryl-HP-ProBook-6460b:~/chirag$ clear
+
+
+beryl@beryl-HP-ProBook-6460b:~/chirag$ lshw
+WARNING: you should run this program as super-user.
+beryl-hp-probook-6460b      
+    description: Computer
+    width: 64 bits
+    capabilities: smp vsyscall32
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-memory
+          description: System memory
+          physical id: 0
+          size: 3856MiB
+     *-cpu
+          product: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+          vendor: Intel Corp.
+          physical id: 1
+          bus info: cpu@0
+          size: 989MHz
+          capacity: 3200MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ht tm pbe syscall nx rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts md_clear flush_l1d cpufreq
+     *-pci
+          description: Host bridge
+          product: 2nd Generation Core Processor Family DRAM Controller
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 09
+          width: 32 bits
+          clock: 33MHz
+        *-display
+             description: VGA compatible controller
+             product: 2nd Generation Core Processor Family Integrated Graphics Controller
+             vendor: Intel Corporation
+             physical id: 2
+             bus info: pci@0000:00:02.0
+             version: 09
+             width: 64 bits
+             clock: 33MHz
+             capabilities: vga_controller bus_master cap_list rom
+             configuration: driver=i915 latency=0
+             resources: irq:32 memory:d4000000-d43fffff memory:c0000000-cfffffff ioport:4000(size=64) memory:c0000-dffff
+        *-communication
+             description: Communication controller
+             product: 6 Series/C200 Series Chipset Family MEI Controller #1
+             vendor: Intel Corporation
+             physical id: 16
+             bus info: pci@0000:00:16.0
+             version: 04
+             width: 64 bits
+             clock: 33MHz
+             capabilities: bus_master cap_list
+             configuration: driver=mei_me latency=0
+             resources: irq:30 memory:d4724000-d472400f
+        *-network
+             description: Ethernet interface
+             product: 82579V Gigabit Network Connection
+             vendor: Intel Corporation
+             physical id: 19
+             bus info: pci@0000:00:19.0
+             logical name: enp0s25
+             version: 04
+             serial: 84:34:97:20:40:10
+             capacity: 1Gbit/s
+             width: 32 bits
+             clock: 33MHz
+             capabilities: bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+             configuration: autonegotiation=on broadcast=yes driver=e1000e driverversion=3.2.6-k firmware=0.13-4 latency=0 link=no multicast=yes port=twisted pair
+             resources: irq:28 memory:d4700000-d471ffff memory:d472a000-d472afff ioport:4060(size=32)
+        *-usb:0
+             description: USB controller
+             product: 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #2
+             vendor: Intel Corporation
+             physical id: 1a
+             bus info: pci@0000:00:1a.0
+             version: 04
+             width: 32 bits
+             clock: 33MHz
+             capabilities: ehci bus_master cap_list
+             configuration: driver=ehci-pci latency=0
+             resources: irq:16 memory:d4729000-d47293ff
+        *-multimedia
+             description: Audio device
+             product: 6 Series/C200 Series Chipset Family High Definition Audio Controller
+             vendor: Intel Corporation
+             physical id: 1b
+             bus info: pci@0000:00:1b.0
+             version: 04
+             width: 64 bits
+             clock: 33MHz
+             capabilities: bus_master cap_list
+             configuration: driver=snd_hda_intel latency=0
+             resources: irq:33 memory:d4720000-d4723fff
+        *-pci:0
+             description: PCI bridge
+             product: 6 Series/C200 Series Chipset Family PCI Express Root Port 1
+             vendor: Intel Corporation
+             physical id: 1c
+             bus info: pci@0000:00:1c.0
+             version: b4
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:24 memory:d4600000-d46fffff
+        *-pci:1
+             description: PCI bridge
+             product: 6 Series/C200 Series Chipset Family PCI Express Root Port 2
+             vendor: Intel Corporation
+             physical id: 1c.1
+             bus info: pci@0000:00:1c.1
+             version: b4
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:25 ioport:2000(size=8192) memory:d0000000-d3ffffff ioport:bfb00000(size=2097152)
+        *-pci:2
+             description: PCI bridge
+             product: 6 Series/C200 Series Chipset Family PCI Express Root Port 3
+             vendor: Intel Corporation
+             physical id: 1c.2
+             bus info: pci@0000:00:1c.2
+             version: b4
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:26 memory:d4500000-d45fffff
+           *-firewire
+                description: FireWire (IEEE 1394)
+                product: IEEE 1394 Host Controller
+                vendor: JMicron Technology Corp.
+                physical id: 0
+                bus info: pci@0000:23:00.0
+                version: 30
+                width: 32 bits
+                clock: 33MHz
+                capabilities: ohci bus_master cap_list
+                configuration: driver=firewire_ohci latency=0
+                resources: irq:18 memory:d4500000-d45007ff memory:d4505000-d45050ff
+           *-generic:0
+                description: System peripheral
+                product: SD/MMC Host Controller
+                vendor: JMicron Technology Corp.
+                physical id: 0.1
+                bus info: pci@0000:23:00.1
+                version: 30
+                width: 32 bits
+                clock: 33MHz
+                capabilities: bus_master cap_list rom
+                configuration: driver=sdhci-pci latency=0
+                resources: irq:18 memory:d4504000-d45040ff memory:d4508000-d450ffff
+           *-generic:1 UNCLAIMED
+                description: SD Host controller
+                product: Standard SD Host Controller
+                vendor: JMicron Technology Corp.
+                physical id: 0.2
+                bus info: pci@0000:23:00.2
+                version: 30
+                width: 32 bits
+                clock: 33MHz
+                capabilities: cap_list
+                configuration: latency=0
+                resources: memory:d4503000-d45030ff
+        *-pci:3
+             description: PCI bridge
+             product: 6 Series/C200 Series Chipset Family PCI Express Root Port 4
+             vendor: Intel Corporation
+             physical id: 1c.3
+             bus info: pci@0000:00:1c.3
+             version: b4
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:27 memory:d4400000-d44fffff
+           *-network
+                description: Wireless interface
+                product: Centrino Advanced-N 6205 [Taylor Peak]
+                vendor: Intel Corporation
+                physical id: 0
+                bus info: pci@0000:24:00.0
+                logical name: wlo1
+                version: 34
+                serial: 60:67:20:65:38:f0
+                width: 64 bits
+                clock: 33MHz
+                capabilities: bus_master cap_list ethernet physical wireless
+                configuration: broadcast=yes driver=iwlwifi driverversion=5.4.0-150-generic firmware=18.168.6.1 ip=192.168.1.13 latency=0 link=yes multicast=yes wireless=IEEE 802.11
+                resources: irq:31 memory:d4400000-d4401fff
+        *-usb:1
+             description: USB controller
+             product: 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #1
+             vendor: Intel Corporation
+             physical id: 1d
+             bus info: pci@0000:00:1d.0
+             version: 04
+             width: 32 bits
+             clock: 33MHz
+             capabilities: ehci bus_master cap_list
+             configuration: driver=ehci-pci latency=0
+             resources: irq:16 memory:d4728000-d47283ff
+        *-isa
+             description: ISA bridge
+             product: HM65 Express Chipset LPC Controller
+             vendor: Intel Corporation
+             physical id: 1f
+             bus info: pci@0000:00:1f.0
+             version: 04
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master cap_list
+             configuration: driver=lpc_ich latency=0
+             resources: irq:0
+        *-storage
+             description: SATA controller
+             product: 6 Series/C200 Series Chipset Family 6 port Mobile SATA AHCI Controller
+             vendor: Intel Corporation
+             physical id: 1f.2
+             bus info: pci@0000:00:1f.2
+             version: 04
+             width: 32 bits
+             clock: 66MHz
+             capabilities: storage ahci_1.0 bus_master cap_list
+             configuration: driver=ahci latency=0
+             resources: irq:29 ioport:4088(size=8) ioport:4094(size=4) ioport:4080(size=8) ioport:4090(size=4) ioport:4040(size=32) memory:d4727000-d47277ff
+     *-scsi
+          physical id: 2
+          logical name: scsi1
+          capabilities: emulated
+        *-cdrom
+             description: DVD-RAM writer
+             product: DVD A  DS8A8SH
+             vendor: hp
+             physical id: 0.0.0
+             bus info: scsi@1:0.0.0
+             logical name: /dev/cdrom
+             logical name: /dev/cdrw
+             logical name: /dev/dvd
+             logical name: /dev/dvdrw
+             logical name: /dev/sr0
+             version: KH61
+             capabilities: removable audio cd-r cd-rw dvd dvd-r dvd-ram
+             configuration: ansiversion=5 status=open
+WARNING: output may be incomplete or inaccurate, you should run this program as super-user.
+beryl@beryl-HP-ProBook-6460b:~/chirag$ lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              4
+On-line CPU(s) list: 0-3
+Thread(s) per core:  2
+Core(s) per socket:  2
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               42
+Model name:          Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz
+Stepping:            7
+CPU MHz:             881.519
+CPU max MHz:         3200.0000
+CPU min MHz:         800.0000
+BogoMIPS:            4988.51
+Virtualization:      VT-x
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            3072K
+NUMA node0 CPU(s):   0-3
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+beryl@beryl-HP-ProBook-6460b:~/chirag$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+loop0    7:0    0  61.8M  1 loop /snap/core20/1081
+loop1    7:1    0 303.5M  1 loop /snap/code/143
+loop2    7:2    0   704K  1 loop /snap/gnome-characters/726
+loop3    7:3    0 349.7M  1 loop /snap/gnome-3-38-2004/143
+loop4    7:4    0  55.4M  1 loop /snap/core18/2128
+loop5    7:5    0   219M  1 loop /snap/gnome-3-34-1804/72
+loop6    7:6    0  73.9M  1 loop /snap/core22/864
+loop7    7:7    0   2.2M  1 loop /snap/gnome-calculator/955
+loop8    7:8    0     4K  1 loop /snap/bare/5
+loop9    7:9    0   512K  1 loop /snap/gnome-characters/795
+loop10   7:10   0   497M  1 loop /snap/gnome-42-2204/141
+loop11   7:11   0  65.1M  1 loop /snap/gtk-common-themes/1515
+loop12   7:12   0  40.9M  1 loop /snap/snapd/20290
+loop13   7:13   0   2.2M  1 loop /snap/gnome-calculator/953
+loop14   7:14   0   548K  1 loop /snap/gnome-logs/106
+loop15   7:15   0 218.4M  1 loop /snap/gnome-3-34-1804/93
+loop16   7:16   0  55.7M  1 loop /snap/core18/2790
+loop17   7:17   0  63.5M  1 loop /snap/core20/2015
+loop18   7:18   0 241.4M  1 loop /snap/gnome-3-38-2004/70
+loop19   7:19   0   812K  1 loop /snap/gnome-logs/121
+loop20   7:20   0  91.7M  1 loop /snap/gtk-common-themes/1535
+loop21   7:21   0 303.3M  1 loop /snap/code/144
+loop22   7:22   0   1.6M  1 loop /snap/gnome-system-monitor/186
+loop23   7:23   0   2.5M  1 loop /snap/gnome-system-monitor/163
+sda      8:0    0 298.1G  0 disk 
+└─sda1   8:1    0 298.1G  0 part /
+sr0     11:0    1  1024M  0 rom  
+beryl@beryl-HP-ProBook-6460b:~/chirag$ free -h
+              total        used        free      shared  buff/cache   available
+Mem:           3.8G        2.4G        187M        587M        1.2G        611M
+Swap:          2.0G        247M        1.8G
+beryl@beryl-HP-ProBook-6460b:~/chirag$ uname -a
+Linux beryl-HP-ProBook-6460b 5.4.0-150-generic #167~18.04.1-Ubuntu SMP Wed May 24 00:51:42 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+beryl@beryl-HP-ProBook-6460b:~/chirag$ hostname
+beryl-HP-ProBook-6460b
+beryl@beryl-HP-ProBook-64
+
+------------------------------------------------------------------------------------------------------------>
+(18)
+Manipulating text :
+**AWK:**
+
+`awk` is a versatile text processing tool in Unix and Linux. It is a scripting language used for text and data manipulation, extraction, and reporting. `awk` operates on a record-by-record basis, allowing you to process and transform data in columns and rows.
+
+**Purpose of AWK:**
+
+1. **Text Processing:** `awk` is used to process and transform text data, extract specific fields, and perform various text-related operations.
+
+2. **Data Extraction:** It is often used to extract and manipulate data from structured files, such as CSV files.
+
+3. **Report Generation:** `awk` can generate custom reports and summaries from data.
+
+**Examples with explanations:**
+
+1. **Basic `awk` usage:**
+   - **Command:**
+     ```bash
+     awk '{print $2}' data.txt
+     ```
+   - **Purpose:** This command extracts and prints the second column of data from the file `data.txt`.
+
+2. **Calculate column-wise sums:**
+   - **Command:**
+     ```bash
+     awk '{sum += $1} END {print sum}' numbers.txt
+     ```
+   - **Purpose:** This command calculates and prints the sum of values in the first column of the `numbers.txt` file.
+
+3. **Conditional text processing:**
+   - **Command:**
+     ```bash
+     awk '$3 > 50 {print $1, $2}' data.txt
+     ```
+   - **Purpose:** This command prints the first and second columns of lines where the third column is greater than 50.
+
+**SED:**
+
+`sed` (stream editor) is a text stream editor in Unix and Linux. It is used for text manipulation and transformation. `sed` processes input line by line and can perform various text editing tasks using regular expressions.
+
+**Purpose of SED:**
+
+1. **Search and Replace:** `sed` is commonly used for search and replace operations in text files.
+
+2. **Text Transformation:** It can transform text data, such as adding, deleting, or modifying lines or characters.
+
+3. **Batch Text Editing:** `sed` is useful for batch text processing, especially when applied to multiple files simultaneously.
+
+**Examples with explanations:**
+
+1. **Search and replace text in a file:**
+   - **Command:**
+     ```bash
+     sed 's/old_text/new_text/g' file.txt
+     ```
+   - **Purpose:** This command replaces all occurrences of `old_text` with `new_text` in `file.txt`.
+
+2. **Delete lines that match a pattern:**
+   - **Command:**
+     ```bash
+     sed '/pattern/d' file.txt
+     ```
+   - **Purpose:** This command removes all lines in `file.txt` that contain the specified `pattern`.
+
+3. **Add a prefix to each line:**
+   - **Command:**
+     ```bash
+     sed 's/^/prefix/' file.txt
+     ```
+   - **Purpose:** This command adds the "prefix" to the beginning of each line in `file.txt`.
+
+**Sort:**
+
+The `sort` command is used to sort lines of text files in various ways, such as alphabetically, numerically, or in reverse order.
+
+**Purpose of Sort:**
+
+1. **Alphabetical Sorting:** `sort` is used to alphabetically sort lines of text.
+
+2. **Numerical Sorting:** It can sort lines numerically, considering numerical values.
+
+3. **Reverse Sorting:** `sort` can reverse the order of sorted lines.
+
+**Examples with explanations:**
+
+1. **Alphabetically sort lines in a file:**
+   - **Command:**
+     ```bash
+     sort file.txt
+     ```
+   - **Purpose:** This command alphabetically sorts the lines in `file.txt` and displays the result.
+
+2. **Numerically sort lines in a file:**
+   - **Command:**
+     ```bash
+     sort -n numbers.txt
+     ```
+   - **Purpose:** This command sorts the lines in `numbers.txt` numerically, considering numeric values.
+
+3. **Reverse sort lines in a file:**
+   - **Command:**
+     ```bash
+     sort -r file.txt
+     ```
+   - **Purpose:** This command sorts the lines in `file.txt` in reverse order, from highest to lowest or from Z to A, depending on the sort criteria.
+
+`awk`, `sed`, and `sort` are powerful text processing tools in Linux, each with its specific use cases for manipulating and processing text and data. They are essential for various text editing and data processing tasks on the command line.
+------------------------------------------------------------------------------------------------------------>
+(20)
+exec:
+Certainly, the `-exec` option in the `find` command allows you to execute other commands on the files that match your search criteria. Here are some more examples of how you can use `-exec`:
+
+1. **Delete Files:**
+   To delete all `.bak` files in the current directory:
+   ```bash
+   find . -maxdepth 1 -type f -name "*.bak" -exec rm {} \;
+   ```
+
+2. **Move Files:**
+   To move all `.jpg` files to a specific directory:
+   ```bash
+   find . -maxdepth 1 -type f -name "*.jpg" -exec mv {} /path/to/destination/ \;
+   ```
+
+3. **Copy Files:**
+   To copy all `.txt` files to another directory:
+   ```bash
+   find . -maxdepth 1 -type f -name "*.txt" -exec cp {} /path/to/destination/ \;
+   ```
+
+4. **Change Permissions:**
+   To change the permissions of all `.sh` scripts to make them executable:
+   ```bash
+   find . -maxdepth 1 -type f -name "*.sh" -exec chmod +x {} \;
+   ```
+
+5. **Count Lines in Files:**
+   To count the number of lines in all `.txt` files and display the total:
+   ```bash
+   find . -maxdepth 1 -type f -name "*.txt" -exec wc -l {} \; | awk '{total += $1} END {print total}'
+   ```
+
+6. **Archive Files:**
+   To create a compressed archive (e.g., `.tar.gz`) of all `.log` files:
+   ```bash
+   find . -maxdepth 1 -type f -name "*.log" -exec tar -czvf logs.tar.gz {} \;
+   ```
+
+7. **Print File Names:**
+   To simply print the names of all `.pdf` files:
+   ```bash
+   find . -maxdepth 1 -type f -name "*.pdf" -exec echo {} \;
+   ```
+
+The `-exec` option in the `find` command is a powerful way to perform various actions on files that match specific criteria. You can customize it according to your needs, whether you want to delete, move, copy, modify permissions, or perform other operations on the matching files.
+------------------------------------------------------------------------------------------------------------------------------>
+(21)
+chown 
+The `chown` command in Linux is used to change the ownership of files and directories. Ownership in Linux consists of two parts: the user owner and the group owner. The `chown` command allows you to modify both the user and group ownership of files and directories.
+
+**Syntax:**
+
+The basic syntax of the `chown` command is as follows:
+
+```bash
+sudo chown [options] user:group file(s)
+```
+
+- `sudo`: You typically need superuser privileges to change ownership, so you use `sudo` to execute the command as a superuser.
+- `[options]`: Various options can be used to modify ownership attributes.
+- `user:group`: The user and group to which ownership is assigned. You can specify just the user, just the group, or both separated by a colon.
+- `file(s)`: The file(s) or directory (and paths) to which you want to change ownership.
+
+**Common `chown` Options:**
+
+- `-R`: Recursively change ownership for all files and directories within a directory.
+- `-c`: Report only when a change is made.
+- `-v`: Be verbose, showing changes made.
+- `-h`: Affects symbolic links rather than the files they point to.
+
+**Examples with Purposes and Outputs:**
+
+**1. Change User Ownership:**
+   - **Command:** `sudo chown newuser file.txt`
+   - **Purpose:** This changes the user owner of "file.txt" to "newuser."
+
+**2. Change Group Ownership:**
+   - **Command:** `sudo chown :newgroup file.txt`
+   - **Purpose:** This changes the group owner of "file.txt" to "newgroup."
+
+**3. Change Both User and Group Ownership:**
+   - **Command:** `sudo chown newuser:newgroup file.txt`
+   - **Purpose:** This changes both the user and group owners of "file.txt" to "newuser" and "newgroup."
+
+**4. Change Ownership Recursively:**
+   - **Command:** `sudo chown -R newuser:newgroup /path/to/directory`
+   - **Purpose:** This recursively changes ownership of all files and directories within the specified directory and its subdirectories to "newuser" and "newgroup."
+
+**5. Report Changes Verbosely:**
+   - **Command:** `sudo chown -c -v newuser:newgroup file.txt`
+   - **Purpose:** This command will report changes as they are made and be verbose in showing them.
+
+**6. Change Ownership of Symbolic Links:**
+   - **Command:** `sudo chown -h newuser:newgroup symlink`
+   - **Purpose:** This changes ownership of the symbolic link "symlink" itself rather than the file it points to.
+
+**7. Check Ownership Changes (No Actual Change):**
+   - **Command:** `sudo chown -c -v --from=olduser:oldgroup newuser:newgroup file.txt`
+   - **Purpose:** This checks if the ownership is currently "olduser:oldgroup" and changes it to "newuser:newgroup" only if it matches. It doesn't make changes if the current ownership is different.
+
+**Output:**
+The `chown` command typically doesn't produce any output when it runs successfully. If you use the `-c` and `-v` options, it will report the changes made or show verbose output when changing ownership. If an error occurs, the command may display an error message.
+
+Be cautious when using the `chown` command, as changing ownership of files and directories can have significant implications, particularly in a multi-user environment. It should be used with care and with the appropriate permissions.
