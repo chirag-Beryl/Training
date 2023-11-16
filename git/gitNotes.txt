@@ -1,0 +1,1367 @@
+                                        Git Notes
+-------------------------------------------------------------------------------------------------->
+
+1. git init:
+purpose->The git init command is used to start a new Git repository. It initializes a new repository by creating a hidden subfolder within your project that houses the internal data structure required for version control.
+example:
+This command creates a new subfolder named .git that contains all the necessary files for Git to manage the repository.
+Example Output:
+Initialized empty Git repository in /path/to/your/project/.git/
+----------------------------------------------------------------------------------------------->
+2.git -v:
+purpose-> To check the version of git installed.
+----------------------------------------------------------------------------------------------->
+3. git config:
+purpose->git config command in Git is used to get and set repository or global configuration options. These configurations can include user information, core settings, and more. The git config command can be used to view, set, or unset these configuration options.
+a) git config -global : To configure the settings globally.
+b) git -list : To see the settings of configuration of git.
+---------------------------------------------------------------------------------------------->
+4. git clone :
+purpose-> The git clone command is used to create a copy of a remote Git repository. It not only copies the latest version of the project's files but also sets up a connection to the original repository, allowing you to pull changes from the remote repository into your local copy.
+example:
+ 1. For example, to clone the Git repository for the Git itself:
+bash
+---:git clone <repository_URL>
+output->
+Cloning into 'git'...
+remote: Enumerating objects: 309862, done.
+remote: Counting objects: 100% (309862/309862), done.
+remote: Compressing objects: 100% (123723/123723), done.
+Receiving objects: 100% (309862/309862), 103.92 MiB | 4.88 MiB/s, done.
+Resolving deltas: 100% (250295/250295), done.
+Checking out files: 100% (6803/6803), done.
+  2. Clone a Specific Branch:
+If you want to clone a specific branch instead of the default (usually master), you can do so by specifying the branch:
+
+bash
+Copy code
+git clone -b branch_name <repository_URL>
+------------------------------------------------------------------------------------------------------------------------>
+5.  git status: Display the status of the code.
+
+	a)  Untracked : New files that git doesn't track yet.
+	b)  modified : Files that has been changed or updated .
+	c)  staged : Files is ready to be committed.
+	d)  unmodified : Files which are unchanged.
+----------------------------------------------------------------------------------------------------------------------->
+6. git add -> This command adds new or changed files in your working directory to the git staging area.
+	
+	a) git add <file-name> : To add single file.
+	b) git add . : To add all files in staging area.
+----------------------------------------------------------------------------------------------------------------------->
+7. git commit -> It is the record of change i.e what changes are done in the files.
+	Syntax: git commit -m "some message"
+	
+	a) For multiline commit : git commit
+	This will open up a text editor to write multiline commit.
+	b) -a : It will stage and commit the tracked files combined.
+	Synatx : git commit -am "some message"
+	c) --amend : It is a convenient way to modify the most recent commit.
+	Syntax : git commit --amend -m "some message" 
+	d) To commit modified files directly.
+	Syntax : git commit -m "some message" <file-name> 
+---------------------------------------------------------------------------------------------------------------------->
+8.
+The `git log` command in Git is used to display a chronological log of commits in a repository. It provides information about each commit, including the commit hash, author, date, and commit message. The `git log` command supports various options to customize the output.
+
+Here's an explanation of the `git log` command with examples and expected outputs:
+
+### 1. **Basic `git log`:**
+
+To display a simple log of commits, use:
+
+```bash
+git log
+```
+
+This command shows a list of commits, with the most recent commits appearing first.
+
+### 2. **Example Output:**
+
+The output of `git log` typically looks like this:
+
+```bash
+commit b8a4886c55c772d3ef8a3527e2b28a73682e27f0
+Author: Your Name <your.email@example.com>
+Date:   Mon Nov 15 14:32:15 2023 -0500
+
+    Added a new feature
+
+commit 3f9c8a2b1e8c401ef6b444c9d8969ba39e8e17c3
+Author: Another Author <another.email@example.com>
+Date:   Sun Nov 14 09:45:27 2023 -0500
+
+    Fixed a bug
+```
+
+This output includes the commit hash, author information, date, and commit message for each commit.
+
+### 3. **Limiting the Number of Commits:**
+
+To limit the number of commits displayed, you can use the `--n` option, where `n` is the number of commits you want to show:
+
+```bash
+git log -3
+```
+
+This shows only the latest 3 commits.
+
+### 4. **Displaying Commit Stats:**
+
+To see statistics about the changes in each commit (insertions and deletions), use the `--stat` option:
+
+```bash
+git log --stat
+```
+
+### 5. **Displaying a Graphical Representation:**
+
+To display a graphical representation of the commit history, including branching and merging, use the `--graph` option:
+
+```bash
+git log --graph
+```
+
+This can provide a clearer view of your project's history.
+
+### 6. **Searching the Commit History:**
+
+To search for commits containing specific keywords, use the `--grep` option:
+
+```bash
+git log --grep="bug fix"
+```
+
+This filters the log to show only commits with "bug fix" in the commit message.
+
+### 7. **Displaying Author Information:**
+
+To include detailed author information in the log, use the `--pretty` option:
+
+```bash
+git log --pretty=full
+```
+
+This includes the author's name and email in the output.
+
+### 8. **Viewing a Specific Branch:**
+
+If you want to see the commit history for a specific branch, use:
+
+```bash
+git log branch_name
+```
+
+Replace `branch_name` with the name of the branch.
+
+### 9. **Custom Formatting:**
+
+You can customize the format of the log output using the `--format` option:
+
+```bash
+git log --format="%h - %an, %ar : %s"
+```
+
+This displays a custom format, including the abbreviated commit hash, author name, relative date, and commit subject.
+----------------------------------------------------------------------------------------------------------------------->
+9. git show -> The git show command in Git is used to display detailed information about a specific Git object, such as a commit, a tag, or a tree.
+	
+10.  git diff -> The git diff command in Git is used to view the differences between two Git objects,  typically between two commits, two branches, or between the working directory and the most recent 			commit.
+	
+	a) --staged : To see the differences between the files in the staging area (index) and the last commit.
+	b) --staged <commit> : To compare a specific commit with the files in the staging area 	(index).
+
+----------------------------------------------------------------------------------------------------------------->
+11 .
+The `git push` command in Git is used to upload local repository content to a remote repository. It is an essential command for collaborating with others and sharing your changes. The syntax for `git push` is generally:
+
+```bash
+git push <remote> <branch>
+```
+
+Here's an explanation of the `git push` command with examples and expected outputs:
+
+### 1. **Basic `git push`:**
+
+To push your changes to the remote repository, use:
+
+```bash
+git push origin master
+```
+
+This pushes the local changes from the `master` branch to the remote repository named `origin`.
+
+### 2. **Example Output:**
+
+Upon a successful push, you will see output similar to the following:
+
+```bash
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (10/10), 1.02 KiB | 1.02 MiB/s, done.
+Total 10 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/username/repo.git
+   8cecd5a..3d5ab13  master -> master
+```
+
+This output indicates that the push was successful, and it shows details about the objects transferred.
+
+### 3. **Pushing to a Different Branch:**
+
+If you want to push changes from a local branch to a different remote branch, you can specify both branches in the `git push` command:
+
+```bash
+git push origin local-branch:remote-branch
+```
+
+For example:
+
+```bash
+git push origin feature-branch:feature-branch
+```
+
+This pushes the changes from the local `feature-branch` to the remote `feature-branch`.
+
+### 4. **Pushing All Branches:**
+
+To push all branches to the remote repository, you can use the `--all` option:
+
+```bash
+git push --all origin
+```
+
+### 5. **Deleting a Remote Branch:**
+
+To delete a remote branch, use the `--delete` option:
+
+```bash
+git push origin --delete branch-to-delete
+```
+
+### 6. **Force Push:**
+
+In some cases, you may need to force push your changes. Be cautious with force pushing, as it can overwrite remote history. Use it only when necessary:
+
+```bash
+git push --force origin branch-name
+```
+
+### 7. **Pushing Tags:**
+
+To push tags to the remote repository, use:
+
+```bash
+git push origin --tags
+```
+
+This pushes all local tags to the remote repository.
+
+### 8. **Pushing a Specific Commit:**
+
+If you want to push a specific commit, you can use the commit hash:
+
+```bash
+git push origin commit-hash:branch-name
+```
+
+Replace `commit-hash` with the actual commit hash.
+
+### 9. **Tracking Branches:**
+
+If you've set up tracking branches, you can use a shorter form:
+
+```bash
+git push
+```
+
+This assumes that you are pushing the changes to the remote branch that your local branch is tracking.
+---------------------------------------------------------------------------------------------------------------------->
+12.
+The `git branch` command in Git is used to manage branches in a repository. It can be used to list existing branches, create new branches, delete branches, and switch between branches. Here's an explanation of the `git branch` command with examples and expected outputs:
+
+### 1. **List Existing Branches:**
+
+To list all existing branches in your repository, you can use:
+
+```bash
+git branch
+```
+
+### 2. **Example Output:**
+
+The output will show all branches, with an asterisk indicating the currently active branch:
+
+```bash
+  master
+* feature-branch
+  bug-fix
+```
+
+This output indicates that there are three branches: `master`, `feature-branch`, and `bug-fix`. The asterisk (*) denotes that the current branch is `feature-branch`.
+
+### 3. **Create a New Branch:**
+
+To create a new branch, use the following syntax:
+
+```bash
+git branch new-branch-name
+```
+
+For example:
+
+```bash
+git branch feature-branch
+```
+
+This creates a new branch named `feature-branch` but does not switch to it.
+
+### 4. **Switch to a Branch:**
+
+To switch to an existing branch, use the `git checkout` command or the more modern `git switch` command:
+
+```bash
+git checkout branch-name
+```
+
+or
+
+```bash
+git switch branch-name
+```
+
+For example:
+
+```bash
+git switch feature-branch
+```
+
+This switches to the `feature-branch`.
+
+### 5. **Create and Switch to a New Branch:**
+
+You can create and switch to a new branch in one command using the `-b` option:
+
+```bash
+git checkout -b new-branch-name
+```
+
+or
+
+```bash
+git switch -c new-branch-name
+```
+
+For example:
+
+```bash
+git checkout -b feature-branch
+```
+
+This creates and switches to a new branch named `feature-branch`.
+
+### 6. **Delete a Branch:**
+
+To delete a branch, use the `-d` option:
+
+```bash
+git branch -d branch-to-delete
+```
+
+For example:
+
+```bash
+git branch -d bug-fix
+```
+
+This deletes the `bug-fix` branch.
+
+### 7. **Force Delete a Branch:**
+
+If the branch contains changes that are not merged, you might need to force delete it using the `-D` option:
+
+```bash
+git branch -D branch-to-delete
+```
+
+### 8. **Rename a Branch:**
+
+To rename the current branch, you can use the `-m` option:
+
+```bash
+git branch -m new-branch-name
+```
+
+For example:
+
+```bash
+git branch -m updated-feature
+```
+
+This renames the current branch to `updated-feature`.
+
+### 9. **View Remote Branches:**
+
+To see a list of remote branches, use the `-r` option:
+
+```bash
+git branch -r
+```
+
+This shows a list of remote branches.
+
+### 10. **View Local and Remote Branches:**
+
+To see both local and remote branches, use the `-a` option:
+
+```bash
+git branch -a
+```
+
+This shows a combined list of local and remote branches.
+------------------------------------------------------------------------------------------------------------------------>
+13.
+The `git remote` command in Git is used to manage connections to remote repositories. It allows you to view, add, and remove remote repositories. Here's an explanation of the `git remote` command with examples and expected outputs:
+
+### 1. **List Remote Repositories:**
+
+To list the remote repositories associated with your local repository, use:
+
+```bash
+git remote
+```
+
+### 2. **Example Output:**
+
+The output will show the names of the remote repositories:
+
+```bash
+origin
+```
+
+This output indicates that there is a remote repository named `origin`.
+
+### 3. **List Remote Repositories with URLs:**
+
+To view the URLs of the remote repositories, use the `-v` option:
+
+```bash
+git remote -v
+```
+
+### 4. **Example Output:**
+
+The output will show the names and URLs of the remote repositories:
+
+```bash
+origin  https://github.com/username/repo.git (fetch)
+origin  https://github.com/username/repo.git (push)
+```
+
+This output indicates that the `origin` remote has fetch and push URLs pointing to a GitHub repository.
+
+### 5. **Add a Remote Repository:**
+
+To add a new remote repository, use:
+
+```bash
+git remote add <remote-name> <remote-URL>
+```
+
+For example:
+
+```bash
+git remote add upstream https://github.com/upstreamuser/repo.git
+```
+
+This adds a new remote named `upstream` with the specified URL.
+
+### 6. **Rename a Remote:**
+
+To rename a remote repository, use the `git remote rename` command:
+
+```bash
+git remote rename <old-name> <new-name>
+```
+
+For example:
+
+```bash
+git remote rename origin upstream
+```
+
+This renames the remote repository from `origin` to `upstream`.
+
+### 7. **Remove a Remote Repository:**
+
+To remove a remote repository, use:
+
+```bash
+git remote remove <remote-name>
+```
+
+or
+
+```bash
+git remote rm <remote-name>
+```
+
+For example:
+
+```bash
+git remote remove upstream
+```
+
+This removes the remote repository named `upstream`.
+
+### 8. **Show Information about a Remote:**
+
+To get more information about a specific remote repository, use the `git remote show` command:
+
+```bash
+git remote show <remote-name>
+```
+
+For example:
+
+```bash
+git remote show origin
+```
+
+This displays information about the `origin` remote, including the URL and tracked branches.
+
+### 9. **Changing the URL of a Remote:**
+
+If you need to update the URL of a remote repository, you can use:
+
+```bash
+git remote set-url <remote-name> <new-URL>
+```
+
+For example:
+
+```bash
+git remote set-url origin https://new-url/repo.git
+```
+
+This changes the URL of the `origin` remote.
+
+### 10. **Prune Remote Branches:**
+
+To remove remote tracking branches that no longer exist on the remote, use:
+
+```bash
+git remote prune <remote-name>
+```
+
+For example:
+
+```bash
+git remote prune origin
+```
+
+This removes remote tracking branches that have been deleted on the `origin` remote.
+
+----------------------------------------------------------------------------------------------------------------------->
+14.
+The `git pull` command in Git is used to fetch and integrate changes from a remote repository into the current branch. It is essentially a combination of two commands: `git fetch` and `git merge`. Here's an explanation of the `git pull` command with examples and expected outputs:
+
+### 1. **Basic `git pull`:**
+
+To pull changes from the remote repository into the current branch, you can use:
+
+```bash
+git pull
+```
+
+### 2. **Example Output:**
+
+Upon a successful pull, you will see output similar to the following:
+
+```bash
+remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 10 (delta 2), reused 0 (delta 0)
+Unpacking objects: 100% (10/10), done.
+From https://github.com/username/repo
+   8cecd5a..3d5ab13  master -> origin/master
+Updating 8cecd5a..3d5ab13
+Fast-forward
+ file.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+```
+
+This output indicates that the pull was successful, and it shows details about the objects fetched and the changes made to the local branch.
+
+### 3. **Pulling Changes from a Specific Branch:**
+
+If you want to pull changes from a specific branch on the remote repository, you can specify the branch:
+
+```bash
+git pull origin branch-name
+```
+
+For example:
+
+```bash
+git pull origin feature-branch
+```
+
+### 4. **Pulling and Rebasing:**
+
+If you prefer to rebase your local changes on top of the changes fetched from the remote, you can use the `--rebase` option:
+
+```bash
+git pull --rebase
+```
+
+### 5. **Example Output (with Rebase):**
+
+The output will show information about rebasing:
+
+```bash
+First, rewinding head to replay your work on top of it...
+Applying: Your local commit message
+```
+
+This output indicates that the local changes are being reapplied on top of the fetched changes.
+
+### 6. **Pulling Without Merging or Rebasing:**
+
+If you want to fetch changes without automatically merging or rebasing, you can use:
+
+```bash
+git pull --no-rebase
+```
+
+### 7. **Pulling and Fetching Tags:**
+
+To also fetch tags along with changes, you can use the `--tags` option:
+
+```bash
+git pull --tags
+```
+
+This fetches tags from the remote repository.
+
+### 8. **Pulling a Specific Commit:**
+
+If you want to pull a specific commit from the remote repository, you can use the commit hash:
+
+```bash
+git pull origin commit-hash:branch-name
+```
+
+Replace `commit-hash` with the actual commit hash.
+
+### 9. **Customizing the Merge Strategy:**
+
+You can customize the merge strategy using options like `--strategy`:
+
+```bash
+git pull --strategy=octopus
+```
+
+This example uses the octopus merge strategy.
+
+------------------------------------------------------------------------------------------------------------------------>
+15.
+The `git merge` command in Git is used to combine changes from different branches. It merges changes from one branch into another, creating a new commit to represent the merged state. Here's an explanation of the `git merge` command with examples and expected outputs:
+
+### 1. **Basic `git merge`:**
+
+To merge changes from one branch into the current branch, use:
+
+```bash
+git merge branch-name
+```
+
+For example, to merge changes from the `feature-branch` into the current branch (e.g., `master`):
+
+```bash
+git merge feature-branch
+```
+
+### 2. **Example Output:**
+
+Upon a successful merge, you will see output similar to the following:
+
+```bash
+Updating 8cecd5a..3d5ab13
+Fast-forward
+ file.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+```
+
+This output indicates that the merge was successful and provides details about the changes merged.
+
+### 3. **Merge Commit:**
+
+If the branches being merged have diverged (i.e., there are changes in both branches), Git creates a new commit to represent the merge:
+
+```bash
+Merge branch 'feature-branch' into master
+```
+
+This new commit represents the state of both branches after the merge.
+
+### 4. **Merge Conflict:**
+
+If there are conflicting changes in the branches being merged, Git will not be able to automatically resolve the differences, and a merge conflict will occur.
+
+```bash
+Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+In this case, you need to manually resolve the conflicts before completing the merge.
+
+### 5. **Resolving Merge Conflict:**
+
+After resolving conflicts, you need to add the resolved files and complete the merge:
+
+```bash
+git add file.txt
+git merge --continue
+```
+
+Or, you can abort the merge entirely:
+
+```bash
+git merge --abort
+```
+
+### 6. **Merge from a Remote Branch:**
+
+To merge changes from a remote branch, you can use:
+
+```bash
+git merge origin/remote-branch
+```
+
+This merges changes from the remote branch into the current local branch.
+
+### 7. **Merge with a Specific Commit:**
+
+If you want to merge with a specific commit, you can use:
+
+```bash
+git merge commit-hash
+```
+
+Replace `commit-hash` with the actual commit hash.
+
+### 8. **Fast-Forward Merge:**
+
+If there are no divergent changes in the branches, Git performs a fast-forward merge. In this case, the branch pointer is simply moved forward:
+
+```bash
+Fast-forward
+```
+
+This indicates that the merge was a fast-forward operation.
+
+### 9. **Squash Merge:**
+
+If you want to squash all the commits from a feature branch into a single commit before merging, you can use:
+
+```bash
+git merge --squash feature-branch
+```
+
+This combines all changes into a single commit, and you'll need to commit the result.
+
+----------------------------------------------------------------------------------------------------------------------->
+16.
+The `git reset` command in Git is a versatile command used to reset the current branch to a specific state. It can be used to unstage changes, undo commits, or move the branch pointer to a different commit. Here's an explanation of the `git reset` command with examples and expected outputs:
+
+### 1. **Soft Reset:**
+
+A soft reset keeps changes in your working directory but undoes commits, effectively moving the branch pointer to a previous commit:
+
+```bash
+git reset --soft HEAD~1
+```
+
+This example resets the last commit (`HEAD~1`) while keeping the changes staged in your working directory.
+
+### 2. **Example Output (Soft Reset):**
+
+Upon a successful soft reset, you will see no output, but the branch pointer will have moved to the specified commit.
+
+### 3. **Mixed Reset (Default):**
+
+A mixed reset is the default behavior. It resets the branch pointer and unstages changes, but keeps the changes in your working directory:
+
+```bash
+git reset HEAD~1
+```
+
+This example resets the last commit (`HEAD~1`) and unstages the changes.
+
+### 4. **Example Output (Mixed Reset):**
+
+Upon a successful mixed reset, you will see no output, but the branch pointer will have moved to the specified commit, and changes will be unstaged.
+
+### 5. **Hard Reset:**
+
+A hard reset moves the branch pointer, unstages changes, and discards changes in your working directory:
+
+```bash
+git reset --hard HEAD~1
+```
+
+This example resets the last commit (`HEAD~1`) and discards changes in your working directory.
+
+### 6. **Example Output (Hard Reset):**
+
+Upon a successful hard reset, you will see no output, but the branch pointer will have moved to the specified commit, and changes in your working directory will be discarded.
+
+### 7. **Unstage Changes:**
+
+To unstage changes without modifying the working directory, you can use a mixed reset:
+
+```bash
+git reset
+```
+
+This command unstages changes, equivalent to `git reset HEAD`.
+
+### 8. **Reset to a Specific Commit:**
+
+You can reset to a specific commit hash:
+
+```bash
+git reset --hard commit-hash
+```
+
+Replace `commit-hash` with the actual commit hash.
+
+### 9. **Undoing a Merge:**
+
+If you want to undo a merge, you can use `git reset` with the `--hard` option to discard all changes:
+
+```bash
+git reset --hard HEAD~1
+```
+
+### 10. **Undoing the Last Commit:**
+
+To undo the last commit and keep changes in your working directory:
+
+```bash
+git reset --soft HEAD^
+```
+
+### 11. **Reset a Single File:**
+
+You can reset changes in a single file:
+
+```bash
+git reset file.txt
+```
+
+This discards changes in `file.txt` and leaves other changes staged.
+
+----------------------------------------------------------------------------------------------------------------------->
+17.
+ git clean -> It is used to remove untracked files and directories from your working directory.
+	
+	a) -n : This option shows you what files and directories would be removed without actually removing them.
+	b) -f : This option is used to actually remove the untracked files and directories.
+	c) -d : This option tells Git to also remove untracked directories. By default, Git only removes untracked files.
+	d) -i : This option enters interactive mode, allowing you to select which untracked files and directories you want to remove.
+18.
+The `git revert` command in Git is used to create a new commit that undoes the changes made by a previous commit. It's a safer way to reverse changes compared to `git reset`, as it doesn't alter existing commit history. Instead, it adds a new commit that undoes the specified commit's changes. Here's an explanation of the `git revert` command with examples and expected outputs:
+
+### 1. **Basic `git revert`:**
+
+To revert the changes introduced by a specific commit, you can use:
+
+```bash
+git revert commit-hash
+```
+
+Replace `commit-hash` with the actual hash of the commit you want to revert.
+
+### 2. **Example Output:**
+
+Upon a successful revert, you will see output similar to the following:
+
+```bash
+[master 1234567] Revert "Commit message of the reverted commit"
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+```
+
+This output indicates that a new commit (`1234567`) was created to revert the changes of the specified commit.
+
+### 3. **Reverting a Merge Commit:**
+
+If you want to revert a merge commit, you can specify it in the `git revert` command:
+
+```bash
+git revert -m 1 merge-commit-hash
+```
+
+Replace `merge-commit-hash` with the hash of the merge commit you want to revert. The `-m 1` option specifies the mainline, which is usually the branch being merged into.
+
+### 4. **Example Output (Reverting a Merge Commit):**
+
+The output will indicate the creation of a new commit to revert the changes from the specified merge commit.
+
+### 5. **Reverting Multiple Commits:**
+
+To revert multiple commits, you can specify a commit range:
+
+```bash
+git revert start-commit-hash^..end-commit-hash
+```
+
+Replace `start-commit-hash` and `end-commit-hash` with the actual commit hashes forming the range. The `^` symbol is used to exclude the start commit.
+
+### 6. **Example Output (Reverting Multiple Commits):**
+
+The output will show multiple revert commits, each corresponding to the changes introduced by the specified range of commits.
+
+### 7. **Reverting a Merge without a Mainline:**
+
+If you're reverting a merge without specifying a mainline, Git will automatically choose the mainline:
+
+```bash
+git revert merge-commit-hash
+```
+
+### 8. **Viewing Reverted Changes:**
+
+To see the changes introduced by a revert commit, you can use `git show`:
+
+```bash
+git show revert-commit-hash
+```
+
+Replace `revert-commit-hash` with the hash of the revert commit.
+
+### 9. **Reverting a Range of Commits Since a Specific Commit:**
+
+To revert all commits made since a specific commit:
+
+```bash
+git revert start-commit-hash^..HEAD
+```
+
+Replace `start-commit-hash` with the commit from which you want to start reverting.
+
+### 10. **Reverting a Commit with its Changes:**
+
+To revert a commit and apply its changes in reverse, you can use the `--reverse` option:
+
+```bash
+git revert --reverse commit-hash
+```
+
+### 11. **Reverting and Committing in a Single Step:**
+
+To combine the revert and commit steps into one:
+
+```bash
+git revert -m 1 -e -Xours merge-commit-hash
+```
+
+Replace `merge-commit-hash` with the hash of the merge commit.
+
+----------------------------------------------------------------------------------------------------------------------->
+19.
+The `git stash` command in Git is used to save changes that are not ready to be committed into a temporary area called the stash. This allows you to switch branches or perform other operations without committing incomplete changes. Here's an explanation of the `git stash` command with examples and expected outputs:
+
+### 1. **Stashing Changes:**
+
+To stash your changes, use:
+
+```bash
+git stash
+```
+
+This command will stash both staged and unstaged changes.
+
+### 2. **Example Output:**
+
+Upon a successful stash, you will see output similar to the following:
+
+```bash
+Saved working directory and index state WIP on branch-name: commit message
+```
+
+This output indicates that the changes have been stashed.
+
+### 3. **Stashing Uncommitted Changes:**
+
+If you only want to stash unstaged changes, you can use the `--keep-index` option:
+
+```bash
+git stash --keep-index
+```
+
+### 4. **Stashing with a Message:**
+
+To add a custom message to your stash, use the `-m` option:
+
+```bash
+git stash -m "Your stash message here"
+```
+
+### 5. **Listing Stashes:**
+
+To view a list of stashes, use:
+
+```bash
+git stash list
+```
+
+This will show a list of stashes with unique identifiers (stash@{0}, stash@{1}, etc.).
+
+### 6. **Applying Stashed Changes:**
+
+To apply the most recent stash and remove it from the stash list, use:
+
+```bash
+git stash apply
+```
+
+### 7. **Applying a Specific Stash:**
+
+To apply a specific stash, use:
+
+```bash
+git stash apply stash@{1}
+```
+
+Replace `stash@{1}` with the appropriate stash identifier.
+
+### 8. **Example Output (Applying Stash):**
+
+Upon a successful apply, you will see output similar to the following:
+
+```bash
+On branch branch-name
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+```
+
+This output indicates that the stash was successfully applied, and your changes are now in the working directory.
+
+### 9. **Applying and Dropping Stashed Changes:**
+
+To apply the most recent stash and drop it from the stash list, use:
+
+```bash
+git stash pop
+```
+
+### 10. **Dropping a Stash:**
+
+To remove a stash without applying it, use:
+
+```bash
+git stash drop stash@{1}
+```
+
+Replace `stash@{1}` with the appropriate stash identifier.
+
+### 11. **Clearing All Stashes:**
+
+To remove all stashes, use:
+
+```bash
+git stash clear
+```
+
+This removes all stashes and cannot be undone.
+
+### 12. **Creating a Branch from a Stash:**
+
+To create a new branch from a stash, use:
+
+```bash
+git stash branch new-branch-name stash@{1}
+```
+
+Replace `new-branch-name` with the desired branch name and `stash@{1}` with the appropriate stash identifier.
+
+------------------------------------------------------------------------------------------------------------------->
+20.
+The `git rebase` command in Git is used to modify commit history by moving, combining, or eliminating commits. It's a powerful but potentially risky operation that should be used with caution, especially when working with shared branches. Here's an explanation of the `git rebase` command with examples and expected outputs:
+
+### 1. **Basic `git rebase`:**
+
+To rebase your current branch onto another branch, use:
+
+```bash
+git rebase target-branch
+```
+
+This moves your changes to the tip of the `target-branch`.
+
+### 2. **Example Output:**
+
+Upon a successful rebase, you will see output similar to the following:
+
+```bash
+First, rewinding head to replay your work on top of it...
+Applying: Your commit message
+```
+
+This output indicates that your changes have been successfully replayed on top of the target branch.
+
+### 3. **Rebase Interactive Mode:**
+
+To perform an interactive rebase, allowing you to squash, edit, or rearrange commits, use:
+
+```bash
+git rebase -i target-branch
+```
+
+### 4. **Example Output (Interactive Rebase):**
+
+This opens an interactive editor where you can choose actions for each commit:
+
+```bash
+pick 1234567 Your commit message
+pick 7654321 Another commit message
+```
+
+You can change `pick` to other actions like `squash`, `edit`, or `reword`.
+
+### 5. **Squashing Commits:**
+
+To squash multiple commits into one during an interactive rebase:
+
+```bash
+pick 1234567 Your commit message
+squash 7654321 Another commit message
+```
+
+### 6. **Example Output (Squashing Commits):**
+
+After saving and exiting the editor, you'll see another editor to modify the commit message:
+
+```bash
+# This is a combination of 2 commits.
+# This is the 1st commit message:
+
+Your commit message
+
+# This is the commit message #2:
+
+Another commit message
+```
+
+### 7. **Editing Commits:**
+
+To edit a commit during an interactive rebase:
+
+```bash
+pick 1234567 Your commit message
+edit 7654321 Another commit message
+```
+
+### 8. **Example Output (Editing Commits):**
+
+After saving and exiting the editor, you can make changes and use `git commit --amend` to modify the commit.
+
+### 9. **Rebasing a Range of Commits:**
+
+To rebase only a specific range of commits, use:
+
+```bash
+git rebase -i commit-hash^
+```
+
+Replace `commit-hash` with the hash of the commit before the range you want to rebase.
+
+### 10. **Rebasing with a Mainline:**
+
+For a merge commit, you can specify the mainline for the rebase:
+
+```bash
+git rebase -i -m 1 merge-commit-hash
+```
+
+Replace `merge-commit-hash` with the hash of the merge commit.
+
+### 11. **Abort a Rebase:**
+
+To abort an ongoing rebase:
+
+```bash
+git rebase --abort
+```
+
+This will undo the rebase and leave your branch in its original state.
+
+### 12. **Continue a Rebase After Conflicts:**
+
+If conflicts occur during a rebase, resolve them and continue:
+
+```bash
+git rebase --continue
+```
+
+### 13. **Skip a Commit During a Rebase:**
+
+To skip a commit during an interactive rebase, change `pick` to `skip`:
+
+```bash
+pick 1234567 Your commit message
+skip 7654321 Another commit message
+```
+
+### 14. **Rebasing from a Remote Branch:**
+
+To rebase from a remote branch, use:
+
+```bash
+git pull --rebase origin branch-name
+```
+
+This pulls changes from the remote branch and rebases your local changes on top of them.
+
+--------------------------------------------------------------------------------------------------------------->
+21.
+It seems there might be a misunderstanding in your question. There isn't a specific `git cherrypicker` command in Git. However, I believe you might be referring to the process of cherry-picking in Git. Cherry-picking is a way to apply a specific commit from one branch to another. Let me explain cherry-picking with examples:
+
+### 1. **Basic Cherry-Pick:**
+
+To apply a specific commit to your current branch, use:
+
+```bash
+git cherry-pick commit-hash
+```
+
+Replace `commit-hash` with the actual hash of the commit you want to apply.
+
+### 2. **Example Output:**
+
+Upon a successful cherry-pick, you will see output similar to the following:
+
+```bash
+[cherry-pick hash] Your commit message
+```
+
+This output indicates that the commit has been successfully cherry-picked.
+
+### 3. **Cherry-Pick with a Range:**
+
+You can cherry-pick a range of commits:
+
+```bash
+git cherry-pick start-commit-hash^..end-commit-hash
+```
+
+Replace `start-commit-hash` and `end-commit-hash` with the actual commit hashes forming the range. The `^` symbol is used to exclude the start commit.
+
+### 4. **Example Output (Cherry-Pick with a Range):**
+
+Upon a successful cherry-pick, you will see output similar to the single cherry-pick example.
+
+### 5. **Cherry-Pick into a Different Branch:**
+
+To cherry-pick a commit into a different branch:
+
+```bash
+git checkout target-branch
+git cherry-pick commit-hash
+```
+
+This switches to the target branch and cherry-picks the commit into it.
+
+### 6. **Cherry-Pick with a Conflict:**
+
+If there are conflicts during cherry-pick, you need to resolve them:
+
+```bash
+git cherry-pick commit-hash
+```
+
+If conflicts occur, Git will mark the file as conflicted, and you need to resolve it manually. After resolving, continue the cherry-pick:
+
+```bash
+git cherry-pick --continue
+```
+
+### 7. **Abort a Cherry-Pick:**
+
+To abort an ongoing cherry-pick:
+
+```bash
+git cherry-pick --abort
+```
+
+This undoes the cherry-pick operation.
+
+### 8. **Cherry-Pick from a Remote Branch:**
+
+To cherry-pick a commit from a remote branch:
+
+```bash
+git fetch origin
+git cherry-pick origin/remote-branch
+```
+
+This fetches the changes from the remote branch and cherry-picks the commit.
+
+### 9. **Cherry-Pick and Preserve Original Commit Date:**
+
+To preserve the original commit date during cherry-pick:
+
+```bash
+git cherry-pick -x commit-hash
+```
+
+The `-x` option adds a line to the commit message indicating the original commit hash.
+
+### 10. **Cherry-Pick and Edit the Commit Message:**
+
+To cherry-pick a commit and edit the commit message:
+
+```bash
+git cherry-pick -e commit-hash
+```
+
+The `-e` option opens an editor to modify the commit message.
+---------------------------------------------------------------------------------------------------------------------->
+22.
+Generating SSH_KEY and adding it to SSH agent :
+
+	Generate a new SSH_KEY : 
+	a) Open terminal.
+	b) Paste the below mentioned text :
+		ssh-keygen -t ed25519 -C "your_email@example.com"
+	c) This will create a prompt like this :
+		> Enter passphrase (empty for no passphrase): [Type a passphrase]
+	d) Enter same passphrase again :
+		> Enter same passphrase again: [Type passphrase again]
+	e) Finally it generates your new SSH key.
+
+	Adding it to SSH agent :
+	a) Open terminal.
+	b) Start ssh-agent in background :
+		eval "$(ssh-agent -s)"
+	c) Add your ssh private key to the ssh-agent :
+		ssh-add ~/.ssh/id_ed25519
+	d) Add the SSH public key to your account on GitHub.
+	
+	Adding new SSH key to github account :
+	a) Copy the SSH public key to your clipboard.Type this command :
+		cat ~/.ssh/id_ed25519.pub
+	b) In the upper-right corner of any page, click your profile photo, then click Settings.
+	c) In the "Access" section of the sidebar, click  SSH and GPG keys.
+	d) Click New SSH key or Add SSH key.
+	e) In the "Title" field, add a descriptive label for the new key.
+	f) In the "Key" field, paste your public key.
+	g) Click Add SSH key.
+	h) If prompted, confirm access to your account on GitHub by entering your github password.
+	i) Done.
