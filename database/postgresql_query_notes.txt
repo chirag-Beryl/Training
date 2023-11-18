@@ -129,4 +129,107 @@
             id     | integer               |           | not null | 
             name   | character varying(30) |           |          | 
             Indexes:
-                "person_pkey" PRIMARY KEY, btree (id)                        
+                "person_pkey" PRIMARY KEY, btree (id)     
+7. truncate table : The TRUNCATE TABLE command to remove all the records from a particular table.
+    Syntax : truncate table <table-name>;
+
+    Example :
+        company=# truncate table person;
+        TRUNCATE TABLE
+
+8. Temporary table : This query is used to create the temporary table.
+    Syntax : create temporary table <table-name>(...);
+
+    Example:
+        temporary_database=# create temporary table temp_table(fruits_name varchar,fruits_season varchar);
+        CREATE TABLE
+    
+        a) drop temporary table : To drop the temporary table from database.
+            Syntax : drop table <table-name>;
+            Example :
+                temporary_database=# drop table temp_table;
+                DROP TABLE
+
+        Note : If we close thse session then temporary table will automatically delete.
+
+9. Column Aliases : Column alias is used to give a short name to the column.
+    Syntax : select <column-name> as <alias-name> from <table-name>;
+
+    Example : 
+        company=# select id, name as person_name from person;
+        id | person_name 
+        ----+-------------
+        (0 rows)
+10. Insert Data : It is used to insert data into table.
+    Syntax : insert into <table-name> (column1,...) values (data1,...);
+    
+    For multiple rows : 
+    Syntax : insert into <table-name> (column1,...) values (data1,...),(data1,...),...;
+
+    Example : 
+        company=# insert into employee (emp_id,name,gender) values (3,'Shyam','male');
+        INSERT 0 1
+        company=# select * from employee;
+        emp_id | name  |             gender             
+        --------+-------+--------------------------------
+            1 | Ram   | male                          
+            2 | Kavya | female                        
+            3 | Shyam | male                          
+        (3 rows)
+    
+11. Select query : SELECT statement is used to fetch the data from a database table, which      returns data in the form of result table.
+    Syntax : select <column_name> from <table-name>;
+    
+    For whole table :
+    Syntax : select * from <table-name>;
+
+    Example : 
+        company=# select * from employee;
+        emp_id | name  |             gender             
+        --------+-------+--------------------------------
+            1 | Ram   | male                          
+            2 | Kavya | female                        
+            3 | Shyam | male                          
+        (3 rows)
+12. Update query : The UPDATE command is used to change the present records in a table.
+    Syntax : update <table-name> set <column-name>=<value> where <condition>;
+
+    Example :
+        company=# update employee SET name='Vijay' where emp_id=3;
+        UPDATE 1
+        company=# select * from employee;
+        emp_id | name  |             gender             
+        --------+-------+--------------------------------
+            1 | Ram   | male                          
+            2 | Kavya | female                        
+            3 | Vijay | male                          
+        (3 rows)
+
+13. Delete query : It is used to delete all existing records from a table. And the WHERE clause is used to remove the selected records or else, all the data would be eliminated.
+    Syntax : delete from <table-name> where <condition>;
+
+    For deleting all rows from table:
+    Syntax : delete from <table-name>;
+
+    Example :   
+        company=# delete from employee where emp_id=3;
+        DELETE 1
+        company=# select * from employee;
+        emp_id | name  |             gender             
+        --------+-------+--------------------------------
+            1 | Ram   | male                          
+            2 | Kavya | female                        
+        (2 rows)
+
+** CLAUSES IN POSTGRESQL **
+
+14. Where clause : WHERE clause is used to specify a condition while fetching the data from single table or joining with multiple tables.
+    Syntax : select column1,column2 from <table-name> 
+            where <Condition>
+
+    Example :
+        company=# select * from employee where emp_id=2;
+        emp_id | name  |             gender             
+        --------+-------+--------------------------------
+            2 | Kavya | female                        
+        (1 row)                   
