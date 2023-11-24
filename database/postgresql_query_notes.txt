@@ -1,6 +1,6 @@
-*****PostgreSQL commands*****
+  *PostgreSQL commands  *
 
-** DATABASE**
+  DATABASE 
 
 1. Create Database : This will create a new database.
 	Syntax: create database <database-name>;
@@ -26,7 +26,7 @@
         DROP DATABASE
 
 
-**TABLES**
+ TABLES 
 
 3. Create Table : To create a new table in existing database.
 	Syntax : create table <table-name>(<column1> <data-type> , <column2> <data type> , ..);
@@ -221,7 +221,7 @@
             2 | Kavya | female                        
         (2 rows)
 
-** CLAUSES IN POSTGRESQL **
+  CLAUSES IN POSTGRESQL  
 
 14. Where clause : WHERE clause is used to specify a condition while fetching the data from single table or joining with multiple tables.
     Syntax : select column1,column2 from <table-name> 
@@ -323,7 +323,7 @@
         3 | James |   5000
         (2 rows)
 
-** POSTGRESQL CONDITIONS **
+  POSTGRESQL CONDITIONS  
 
 22. AND Condition : The AND condition is used to specify the data if all the conditions separated by AND are TRUE.
     Syntax : where <condition1> and <condition2>;
@@ -359,3 +359,302 @@
         ----+------+--------
         4 | A    |  10000
         5 | B    |   9000
+
+-------------------------------------------------------------------------------------->
+Certainly! Let's go through each topic, explaining the commands, their purpose, and providing examples in the context of PostgreSQL:
+
+   ---->>  2:11:35 Variables in Functions
+-  Command: `DECLARE` 
+-  Purpose:  Used to declare variables within a PL/pgSQL block.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION example_function()
+  RETURNS INTEGER AS $$
+  DECLARE
+      my_variable INTEGER;
+  BEGIN
+      my_variable := 10;
+      RETURN my_variable;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:15:55 Store Rows in Variables
+-  Command: `SELECT INTO` 
+-  Purpose:  Used to assign the result of a query to a variable or record.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION store_rows_in_variable()
+  RETURNS TABLE(column1 INTEGER, column2 VARCHAR) AS $$
+  DECLARE
+      my_variable RECORD;
+  BEGIN
+      SELECT * INTO my_variable FROM my_table WHERE id = 1;
+      RETURN QUERY SELECT * FROM my_variable;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:19:17 IN INOUT and OUT
+-  Command: Parameter Declaration (`IN`, `INOUT`, `OUT`) 
+-  Purpose:  Specifies the behavior of function parameters.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION inout_example(IN input_param INTEGER, OUT output_param INTEGER, INOUT in_out_param INTEGER)
+  AS $$
+  BEGIN
+      output_param := input_param + 5;
+      in_out_param := in_out_param * 2;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:21:01 Using Multiple Outs
+-  Command: Multiple `OUT` Clauses 
+-  Purpose:  Allows a function to return multiple values.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION multiple_outs_example(x INTEGER)
+  RETURNS TABLE(result1 INTEGER, result2 INTEGER)
+  AS $$
+  BEGIN
+      result1 := x + 5;
+      result2 := x * 2;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:25:56 Return Query Results
+-  Command: `RETURN QUERY` 
+-  Purpose:  Used to return the result of a query from a function.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION return_query_results()
+  RETURNS TABLE(column1 INTEGER, column2 VARCHAR)
+  AS $$
+  BEGIN
+      RETURN QUERY SELECT * FROM my_table;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:33:42 IF ELSEIF and ELSE
+-  Command: `IF`, `ELSEIF`, `ELSE` 
+-  Purpose:  Implements conditional logic within a PL/pgSQL block.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION if_else_example(x INTEGER)
+  RETURNS VARCHAR
+  AS $$
+  BEGIN
+      IF x > 0 THEN
+          RETURN 'Positive';
+      ELSEIF x < 0 THEN
+          RETURN 'Negative';
+      ELSE
+          RETURN 'Zero';
+      END IF;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:38:48 CASE Statement
+-  Command: `CASE` 
+-  Purpose:  Simplifies complex conditional logic.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION case_example(x INTEGER)
+  RETURNS VARCHAR
+  AS $$
+  BEGIN
+      CASE
+          WHEN x > 0 THEN RETURN 'Positive';
+          WHEN x < 0 THEN RETURN 'Negative';
+          ELSE RETURN 'Zero';
+      END CASE;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:42:01 Loop Statement
+-  Command: `LOOP`, `END LOOP` 
+-  Purpose:  Implements a basic loop structure.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION loop_example()
+  RETURNS INTEGER
+  AS $$
+  DECLARE
+      counter INTEGER := 0;
+  BEGIN
+      LOOP
+          counter := counter + 1;
+          EXIT WHEN counter = 5;
+      END LOOP;
+      RETURN counter;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:45:20 FOR LOOP
+-  Command: `FOR i IN ... LOOP` 
+-  Purpose:  Iterates over a range of values.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION for_loop_example()
+  RETURNS INTEGER
+  AS $$
+  DECLARE
+      result INTEGER := 0;
+  BEGIN
+      FOR i IN 1..5 LOOP
+          result := result + i;
+      END LOOP;
+      RETURN result;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:48:34 Result Sets, Blocks & Raise Notice
+-  Command: `RAISE NOTICE` 
+-  Purpose:  Emits a debugging message.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION result_sets_and_blocks()
+  RETURNS VOID
+  AS $$
+  DECLARE
+      result INTEGER := 0;
+  BEGIN
+      -- Block 1
+      BEGIN
+          result := 10;
+      END;
+
+      -- Block 2
+      BEGIN
+          result := result * 2;
+          RAISE NOTICE 'Result: %', result;
+      END;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+Certainly! Let's continue with the explanation of the commands and their purposes in the context of PostgreSQL:
+
+   ---->>  2:51:11 For Each and Arrays
+-  Command: `FOREACH` 
+-  Purpose:  Used for iterating over elements in an array.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION foreach_example(my_array INTEGER[])
+  RETURNS INTEGER
+  AS $$
+  DECLARE
+      total INTEGER := 0;
+  BEGIN
+      FOREACH element IN ARRAY my_array
+      LOOP
+          total := total + element;
+      END LOOP;
+      RETURN total;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:53:20 While Loop
+-  Command: `WHILE` 
+-  Purpose:  Executes a block of code repeatedly while a condition is true.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION while_loop_example()
+  RETURNS INTEGER
+  AS $$
+  DECLARE
+      counter INTEGER := 0;
+  BEGIN
+      WHILE counter < 5 LOOP
+          counter := counter + 1;
+      END LOOP;
+      RETURN counter;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  2:54:54 Continue
+-  Command: `CONTINUE` 
+-  Purpose:  Skips the rest of the loop and jumps to the next iteration.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION continue_example()
+  RETURNS INTEGER
+  AS $$
+  DECLARE
+      total INTEGER := 0;
+  BEGIN
+      FOR i IN 1..5 LOOP
+          IF i = 3 THEN
+              CONTINUE;
+          END IF;
+          total := total + i;
+      END LOOP;
+      RETURN total;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  3:01:34 Stored Procedures
+-  Purpose:  A stored procedure is a set of precompiled SQL statements that can be executed with a single call.
+-  Example: 
+      sql
+  CREATE OR REPLACE PROCEDURE my_procedure()
+  AS $$
+  BEGIN
+      -- SQL statements here
+      INSERT INTO my_table (column1, column2) VALUES (1, 'example');
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
+   ---->>  3:09:35 Triggers
+-  Purpose:  A trigger is a set of instructions that are automatically executed ("triggered") in response to certain events on a particular table or view.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION my_trigger_function()
+  RETURNS TRIGGER AS $$
+  BEGIN
+      -- Trigger logic here
+      NEW.updated_at = NOW();
+      RETURN NEW;
+  END;
+  $$ LANGUAGE plpgsql;
+
+  CREATE TRIGGER my_trigger
+  BEFORE UPDATE ON my_table
+  FOR EACH ROW
+  EXECUTE FUNCTION my_trigger_function();
+      
+
+   ---->>  3:29:25 Cursors
+-  Command: `DECLARE`, `FETCH`, `CLOSE` 
+-  Purpose:  Cursors are used to process a result set one row at a time, allowing more control over data retrieval.
+-  Example: 
+      sql
+  CREATE OR REPLACE FUNCTION cursor_example()
+  RETURNS TABLE(column1 INTEGER, column2 VARCHAR)
+  AS $$
+  DECLARE
+      my_cursor CURSOR FOR SELECT * FROM my_table;
+      row_data RECORD;
+  BEGIN
+      OPEN my_cursor;
+      LOOP
+          FETCH my_cursor INTO row_data;
+          EXIT WHEN NOT FOUND;
+          -- Process row_data
+      END LOOP;
+      CLOSE my_cursor;
+  END;
+  $$ LANGUAGE plpgsql;
+      
+
